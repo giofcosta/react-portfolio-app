@@ -23,13 +23,13 @@ class Home extends React.Component {
             <div>HTML inside the parallax</div>
           </div>
         </Parallax>
-        <div style={{ height: windowHeight }}>Conteudo 2</div>
+        <div style={{ height: windowHeight }}>Conteudo 1</div>
         <Parallax bgImage={SoloDevImage} strength={windowHeight / 3}>
           <div style={{ height: windowHeight }}>
             <div>HTML inside the parallax</div>
           </div>
         </Parallax>
-        <div style={{ height: windowHeight }}>Conteudo 3</div>
+        <div style={{ height: windowHeight }}>Conteudo 2</div>
       </React.Fragment>
     );
   }
