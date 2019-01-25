@@ -95,3 +95,8 @@ body {
 .efaGep {
   color: #f0f0f0 !important;
 }
+
+.ant-avatar {
+  margin-top: 16px;
+  margin-right: 16px;
+}
