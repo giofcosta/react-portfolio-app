@@ -58,7 +58,7 @@ class Presentation extends React.Component {
 
     return (
       <React.Fragment>
-        <ParallaxLayer offset={offset} speed={1} factor={1}>
+        <ParallaxLayer offset={offset} speed={.5} factor={1}>
           <div className={classes.main}>
             <p className={classes.textOne}>
               GREETINGS FRIEND.
@@ -101,7 +101,7 @@ class Presentation extends React.Component {
             </div>
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={offset} speed={1} factor={1}>
+        <ParallaxLayer offset={offset} speed={.1} factor={1}>
           <div className={classes.main}>
             <Button className={classes.button} ghost size={"large"} onClick={() => parallax(1)}>
               <Icon type="play-circle" />

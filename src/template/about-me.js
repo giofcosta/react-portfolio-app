@@ -41,12 +41,18 @@ class AboutMe extends React.Component {
       <React.Fragment>
         <ParallaxLayer
           offset={offset}
-          speed={3}
-          factor={1}
+          speed={.1}
+          factor={2}
           style={{
             backgroundColor: "#ffffff",
             opacity: ".9"
           }}
+        ></ParallaxLayer>  
+
+        <ParallaxLayer
+          offset={offset}
+          speed={0}
+          factor={2}
         >
           <div className={classes.flexContainer}>
             <div className={classes.title}>
