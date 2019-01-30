@@ -1,13 +1,13 @@
 import React from "react";
 import injectCss from "react-jss";
-import { Rate, List, Icon } from "antd";
+import { Rate, List, Icon, Tag } from "antd";
 import { ParallaxLayer } from "react-spring/addons";
 
 const styles = {
   title: {
     // outline: "1px solid green",
     width: "100%",
-    marginRight: "100px",
+    marginRight: "50px",
     marginBottom: "30px",
     borderBottom: "1px solid #eeeeee"
   },
@@ -16,7 +16,7 @@ const styles = {
     flexWrap: "wrap",
     // outline: "1px solid red",
     // height: '100%',
-    padding: "100px 0",
+    padding: "50px 0",
     paddingLeft: "100px"
   },
   flexBlock: {
@@ -38,65 +38,183 @@ class Skill extends React.Component {
     const { classes, offset } = this.props;
     const data = [
       {
-        avatar: "check",
         title: "Front-End",
-        stars: 10,
-        description:
-          "Ant Design, a design language for background applications, is refined by Ant UED Team"
+        stars: 10
       },
       {
-        avatar: "check",
         title: "Back-End",
-        stars: 10,
-        description:
-          "Ant Design, a design language for background applications, is refined by Ant UED Team"
+        stars: 10
       },
       {
-        avatar: "check",
-        title: "DevOps",
-        stars: 7,
-        description:
-          "Ant Design, a design language for background applications, is refined by Ant UED Team"
+        title: "Desktop",
+        stars: 8
       },
       {
-        avatar: "check",
+        title: "Mobile",
+        stars: 7
+      },
+      {
+        title: "DevOps/Infrastructure",
+        stars: 7
+      },
+      {
+        title: "Software Architecture",
+        stars: 7
+      },
+      {
         title: "Data Structures",
-        stars: 9,
-        description:
-          "Ant Design, a design language for background applications, is refined by Ant UED Team"
+        stars: 8
       },
       {
-        avatar: "check",
         title: "Game Development",
-        stars: 7,
-        description:
-          "Ant Design, a design language for background applications, is refined by Ant UED Team"
+        stars: 8
       },
       {
-        avatar: "check",
+        title: "Design",
+        stars: 6
+      },
+      {
         title: "Management",
-        stars: 6,
-        description:
-          "Ant Design, a design language for background applications, is refined by Ant UED Team"
+        stars: 7
       }
     ];
 
     const languages = [
       {
-        avatar: "check",
         title: "Portuguese (Native)",
         description: "Fluent"
       },
       {
-        avatar: "check",
         title: "English",
         description: "Advanced"
       },
       {
-        avatar: "check",
         title: "Spanish",
         description: "Low Intermediary"
       }
+    ];
+
+    const tags = [
+      "FullStack",
+      "Software",
+      "Developer",
+      "Portuguese",
+      "English",
+      "Spanish",
+      "C++",
+      "C#",
+      "Java",
+      "Go",
+      "Javascript",
+      "Dart",
+      "Front-end",
+      "React",
+      "Vue",
+      "AngularJS",
+      "jQuery",
+      "Razor",
+      "Css",
+      "JSS",
+      "Less",
+      "Sass",
+      "Bootstrap",
+      "Material-UI",
+      "ant Design",
+      "MDBootstrap",
+      "Ionic",
+      "HTML",
+      "Telerik",
+      "KendoUI",
+      "DevExpress",
+      "SyncFusion",
+      "PrimeFaces",
+      "RichFaces",
+      "Adobe Flash",
+      "Back-end",
+      "Asp.Net Web Forms",
+      "Asp.Net MVC",
+      "Asp.Net Core",
+      "JBoss Seam",
+      "Java Spring",
+      "node.js",
+      "Asp Classic",
+      "WCF",
+      "Desktop",
+      "Universal Apps",
+      "WPF",
+      "VB.Net",
+      "Mobile",
+      "Flutter",
+      "Android",
+      "Cordova",
+      "Ionic",
+      "Xamarin",
+      "Windows Phone",
+      "Architecture",
+      "MVVM",
+      "MVC",
+      "DDD",
+      "TDD",
+      "OOP",
+      "Design Patterns",
+      "Clean Code",
+      "Microservices",
+      "SOAP",
+      "Rest",
+      "E-Commerce",
+      "UML",
+      "DevOps",
+      "Infrastructure",
+      "Azure DevOps (Visual Studio Online)",
+      "Windows",
+      "Mac",
+      "Linux",
+      "Docker",
+      "Azure",
+      "Aws",
+      "Google Cloud Platform",
+      "JBoss",
+      "Apache Tomcat",
+      "IIS",
+      "Continuous Integration",
+      "GIt",
+      "SVN",
+      "Mercurial",
+      "Source Code",
+      "TFS",
+      "GitHub",
+      "Data Structures",
+      "MS Sql Server",
+      "Oracle 11g",
+      "MySql",
+      "Redis",
+      "Mongo",
+      "Management",
+      "Azure DevOps (Visual Studio Online)",
+      "Trello",
+      "Jira",
+      "GitHub",
+      "ZenHub",
+      "MS Project",
+      "Excel",
+      "Game Developer",
+      "Unity 2D/3D",
+      "Maya",
+      "3D Studio Max",
+      "Design",
+      "Photoshop",
+      "InDesign",
+      "PageMaker",
+      "Corel Draw",
+      "Illustrator",
+      "Personal",
+      "Easy to work with",
+      "Easy learning",
+      "contributing member",
+      "transparent",
+      "proactive",
+      "easy adaptation",
+      " excellent interpersonal skills"
     ];
 
     return (
@@ -124,7 +242,10 @@ class Skill extends React.Component {
                   <List.Item>
                     <List.Item.Meta
                       avatar={
-                        <Icon type={item.avatar} style={{ fontSize: 20 }} />
+                        <Icon
+                          type="check"
+                          style={{ fontSize: 20, color: "green" }}
+                        />
                       }
                       title={
                         <React.Fragment>
@@ -143,8 +264,8 @@ class Skill extends React.Component {
                   </List.Item>
                 )}
               />
-            </div>
-            <div className={classes.flexBlock}>
+
+              <br />
               <h3>Languages</h3>
               <br />
               <List
@@ -154,14 +275,48 @@ class Skill extends React.Component {
                   <List.Item>
                     <List.Item.Meta
                       avatar={
-                        <Icon type={item.avatar} style={{ fontSize: 20 }} />
+                        <Icon
+                          type="check"
+                          style={{ fontSize: 20, color: "green" }}
+                        />
                       }
-                      title={<span>{item.title}</span>}
-                      description={item.description}
+                      title={
+                        <div>
+                          <span>{item.title}</span>
+                          <span style={{ float: "right", color: "green" }}>
+                            {item.description}
+                          </span>
+                        </div>
+                      }
                     />
                   </List.Item>
                 )}
               />
+            </div>
+            <div className={classes.flexBlock}>
+              <h3>Tags</h3>
+              <br />
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+              >
+                {tags.map((item, key) => (
+                  <Tag color="#2db7f5" style={{ margin: 5 }}>
+                    {item}
+                  </Tag>
+                ))}
+
+              </div>
+                <p style={{float: 'right'}}>
+                  <br />
+                  <br />
+                  <br />
+                  Waiting for new challenges...
+                </p>
             </div>
           </div>
         </ParallaxLayer>

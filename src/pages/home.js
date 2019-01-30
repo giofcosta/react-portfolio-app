@@ -14,7 +14,7 @@ class Home extends React.Component {
           parallax={idx => {
             this.parallax.scrollTo(idx);
           }}
-          offset={2}
+          offset={0}
         />
         <AboutMe
           parallax={idx => {
@@ -27,7 +27,7 @@ class Home extends React.Component {
           parallax={idx => {
             this.parallax.scrollTo(idx);
           }}
-          offset={0}
+          offset={2}
         />
 
         {/* <ParallaxLayer
