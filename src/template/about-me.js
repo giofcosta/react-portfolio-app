@@ -41,12 +41,18 @@ class AboutMe extends React.Component {
       <React.Fragment>
         <ParallaxLayer
           offset={offset}
-          speed={3}
+          speed={0}
           factor={1}
           style={{
             backgroundColor: "#ffffff",
             opacity: ".9"
           }}
+        ></ParallaxLayer>  
+
+        <ParallaxLayer
+          offset={offset}
+          speed={.5}
+          factor={1}
         >
           <div className={classes.flexContainer}>
             <div className={classes.title}>
@@ -69,7 +75,7 @@ class AboutMe extends React.Component {
             <div className={classes.flexBlock}>
               <h3>An experient developer</h3>
               <br />
-              <Timeline pending="Loading">
+              <Timeline>
                 <Timeline.Item color="green">
                   Software engineer with 15+ years of experience as a developer
                 </Timeline.Item>

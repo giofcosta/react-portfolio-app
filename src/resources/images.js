@@ -1,5 +1,5 @@
 const images = {
-  presentation: require("./profile.png"),
+  presentation: require("./profile.jpeg"),
   presentationOne: require("./work-office.jpg"),
   presentationTwo: require("./solo-developers.png")
 };
