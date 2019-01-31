@@ -52,16 +52,17 @@ class AboutMe extends React.Component {
         <ParallaxLayer offset={offset} speed={0.5} factor={1}>
           <div className={classes.flexContainer}>
             <div className={classes.title}>
-              {" "}
               <h2>ABOUT ME</h2>
             </div>
             <div className={classes.flexBlock}>
-              <img
+              {/* <img
                 alt="About me"
                 src={resources.presentationOne}
                 width="100%"
-              />
+              /> */}
+              <video data-html5-video="" preload="metadata" src="blob:https://www.eventials.com/21b534da-c5b7-4c03-a346-87122f8b2a6e"></video>
               <br />
+              
               <br />
               <h3>Get Social</h3>
               <div>

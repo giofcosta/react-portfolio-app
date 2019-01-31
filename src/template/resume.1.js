@@ -49,8 +49,9 @@ const experiencesone = [
         indie game. <br />I improved my knowledge of DevOps, creating a
         continuous integrations for my website portfolio in GCP and AWS and
         Github using Docker and Kubernetes.
-        <br/><br/>
-        <br/>
+        <br />
+        <br />
+        <br />
       </p>
     )
   },
@@ -123,10 +124,7 @@ const experiencesone = [
         DevOps on Azure.
       </p>
     )
-  }
-];
-
-const experiencestwo = [
+  },
   {
     title: "Guiando Telecom – Juiz de Fora, MG - Brazil",
     date: "2013 - 2014",
@@ -214,7 +212,7 @@ const experiencestwo = [
   }
 ];
 
-class Experience extends React.Component {
+class Resume extends React.Component {
   state = { loading: true };
 
   render() {
@@ -239,9 +237,11 @@ class Experience extends React.Component {
         <ParallaxLayer offset={offset} speed={0.5} factor={2}>
           <div className={classes.flexContainer}>
             <div className={classes.title}>
-              <h2>MY EXPERIENCE</h2>
+              <h2>RESUME</h2>
             </div>
-            <div className={classes.flexBlock}>
+            <div className={classes.flexBlock} style={{width: '100%'}}>
+              <h3>Experience</h3>
+              <br />
               {experiencesone.map((exp, key) => (
                 <Card loading={this.state.loading} style={{ marginBottom: 30 }}>
                   <Card.Meta
@@ -274,39 +274,9 @@ class Experience extends React.Component {
                 </Card>
               ))}
             </div>
-            <div className={classes.flexBlock}>
-              {experiencestwo.map((exp, key) => (
-                <Card loading={this.state.loading} style={{ marginBottom: 30 }}>
-                  <Card.Meta
-                    avatar={
-                      <Icon
-                        type="code"
-                        theme="filled"
-                        style={{
-                          color: "#108ee9",
-                          fontSize: 20,
-                          marginRight: 10
-                        }}
-                      />
-                    }
-                    title={
-                      <div>
-                        {exp.title}
-                        <span style={{ color: "green", float: "right" }}>
-                          {exp.date}
-                        </span>
-                      </div>
-                    }
-                    description={
-                      <div>
-                        <h4 style={{ color: "#108ee9" }}>{exp.rule}</h4>
-                        {exp.description}
-                      </div>
-                    }
-                  />
-                </Card>
-              ))}
-            </div>
+            {/* <div className={classes.flexBlock}>
+                    <h3>Education</h3>
+            </div> */}
           </div>
         </ParallaxLayer>
       </React.Fragment>
@@ -314,4 +284,4 @@ class Experience extends React.Component {
   }
 }
 
-export default injectSheet(styles)(Experience);
+export default injectSheet(styles)(Resume);

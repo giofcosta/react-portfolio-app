@@ -1,7 +1,7 @@
 import React from "react";
 import injectSheet from "react-jss";
 import { Parallax} from "react-spring/addons";
-import { Presentation, AboutMe, Skill, Experience } from "../template";
+import { Presentation, AboutMe, Skill, Resume } from "../template";
 
 const styles = {};
 
@@ -13,7 +13,7 @@ class Home extends React.Component {
           parallax={idx => {
             this.parallax.scrollTo(idx);
           }}
-          offset={3}
+          offset={0}
         />
         <AboutMe
           parallax={idx => {
@@ -29,11 +29,11 @@ class Home extends React.Component {
           offset={2}
         />
 
-        <Experience
+        <Resume
           parallax={idx => {
             this.parallax.scrollTo(idx);
           }}
-          offset={0}
+          offset={3}
         />
 
         {/* <ParallaxLayer
