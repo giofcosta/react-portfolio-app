@@ -1,6 +1,6 @@
 import React from "react";
 import injectSheet from "react-jss";
-import { Avatar, Card, Timeline, AutoComplete, Button } from "antd";
+import { Avatar, Timeline, Button } from "antd";
 import { ParallaxLayer } from "react-spring/addons";
 import resources from "../resources/images";
 
@@ -8,16 +8,16 @@ const styles = {
   title: {
     // outline: "1px solid green",
     width: "100%",
-    marginRight: "100px",
-    marginBottom: '30px',
-    borderBottom: '1px solid #eeeeee',
+    marginRight: "50px",
+    marginBottom: "30px",
+    borderBottom: "1px solid #eeeeee"
   },
   flexContainer: {
     display: "flex",
     flexWrap: "wrap",
     // outline: "1px solid red",
     // height: '100%',
-    padding: "100px 0",
+    padding: "50px 0",
     paddingLeft: "100px"
   },
   flexBlock: {
@@ -25,12 +25,12 @@ const styles = {
     maxWidth: "50%",
     overflowY: "auto",
     // outline: "1px solid blue",
-    marginRight: "100px",
-    marginBottom: '30px',
+    marginRight: "50px",
+    marginBottom: "30px"
   },
   content: {
     width: "100%",
-    marginRight: "100px",
+    marginRight: "50px"
   }
 };
 
@@ -45,31 +45,56 @@ class AboutMe extends React.Component {
           factor={1}
           style={{
             backgroundColor: "#ffffff",
-            opacity: ".9"
+          
           }}
-        ></ParallaxLayer>  
+        />
 
-        <ParallaxLayer
-          offset={offset}
-          speed={.5}
-          factor={1}
-        >
+        <ParallaxLayer offset={offset} speed={0.5} factor={1}>
           <div className={classes.flexContainer}>
             <div className={classes.title}>
               {" "}
               <h2>ABOUT ME</h2>
             </div>
             <div className={classes.flexBlock}>
-              <img alt="About me" src={resources.presentationOne} width="100%" />
-              <br/>
-              <br/>
+              <img
+                alt="About me"
+                src={resources.presentationOne}
+                width="100%"
+              />
+              <br />
+              <br />
               <h3>Get Social</h3>
               <div>
-                <Avatar size={64} style={{ color: '#ffffff', backgroundColor: '#4267B2' }}>Facebook</Avatar>
-                <Avatar size={64} style={{ color: '#ffffff', backgroundColor: '#283E4A' }}>LinkedIn</Avatar>
-                <Avatar size={64} style={{ color: '#ffffff', backgroundColor: '#009999' }}>Twitter</Avatar>
-                <Avatar size={64} style={{ color: '#ffffff', backgroundColor: '#FF4500' }}>Reedit</Avatar>
-                <Avatar size={64} style={{ color: '#000000', backgroundColor: '#fcfcfc' }}>Instagram</Avatar>
+                <Avatar
+                  size={64}
+                  style={{ color: "#ffffff", backgroundColor: "#4267B2" }}
+                >
+                  Facebook
+                </Avatar>
+                <Avatar
+                  size={64}
+                  style={{ color: "#ffffff", backgroundColor: "#283E4A" }}
+                >
+                  LinkedIn
+                </Avatar>
+                <Avatar
+                  size={64}
+                  style={{ color: "#ffffff", backgroundColor: "#009999" }}
+                >
+                  Twitter
+                </Avatar>
+                <Avatar
+                  size={64}
+                  style={{ color: "#ffffff", backgroundColor: "#FF4500" }}
+                >
+                  Reedit
+                </Avatar>
+                <Avatar
+                  size={64}
+                  style={{ color: "#000000", backgroundColor: "#fcfcfc" }}
+                >
+                  Instagram
+                </Avatar>
               </div>
             </div>
             <div className={classes.flexBlock}>
@@ -111,7 +136,14 @@ class AboutMe extends React.Component {
               </Timeline>
             </div>
             <div className={classes.content}>
-            <Button type="primary" icon="download" size="large" onClick={() => parallax(2)}>Download My CV</Button>
+              <Button
+                type="primary"
+                icon="download"
+                size="large"
+                onClick={() => parallax(2)}
+              >
+                Download My CV
+              </Button>
             </div>
           </div>
         </ParallaxLayer>

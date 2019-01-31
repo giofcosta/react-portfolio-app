@@ -1,20 +1,19 @@
 import React from "react";
 import injectSheet from "react-jss";
-import resources from "../resources/images";
-import { Parallax, ParallaxLayer } from "react-spring/addons";
-import { Presentation, AboutMe, Skill } from "../template";
+import { Parallax} from "react-spring/addons";
+import { Presentation, AboutMe, Skill, Experience } from "../template";
 
 const styles = {};
 
 class Home extends React.Component {
   render() {
     return (
-      <Parallax ref={ref => (this.parallax = ref)} pages={3}>
+      <Parallax ref={ref => (this.parallax = ref)} pages={4} scrolling={true}>
         <Presentation
           parallax={idx => {
             this.parallax.scrollTo(idx);
           }}
-          offset={0}
+          offset={3}
         />
         <AboutMe
           parallax={idx => {
@@ -22,12 +21,19 @@ class Home extends React.Component {
           }}
           offset={1}
         />
-        
+
         <Skill
           parallax={idx => {
             this.parallax.scrollTo(idx);
           }}
           offset={2}
+        />
+
+        <Experience
+          parallax={idx => {
+            this.parallax.scrollTo(idx);
+          }}
+          offset={0}
         />
 
         {/* <ParallaxLayer

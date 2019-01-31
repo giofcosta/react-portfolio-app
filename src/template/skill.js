@@ -1,7 +1,7 @@
 import React from "react";
-import injectCss from "react-jss";
+import injectSheet from "react-jss";
 import { Rate, List, Icon, Tag } from "antd";
-import { ParallaxLayer } from "react-spring/addons";
+import { ParallaxLayer, Parallax } from "react-spring/addons";
 
 const styles = {
   title: {
@@ -33,189 +33,190 @@ const styles = {
   }
 };
 
+const data = [
+    {
+      title: "Front-End",
+      stars: 10
+    },
+    {
+      title: "Back-End",
+      stars: 10
+    },
+    {
+      title: "Desktop",
+      stars: 8
+    },
+    {
+      title: "Mobile",
+      stars: 7
+    },
+    {
+      title: "DevOps/Infrastructure",
+      stars: 7
+    },
+    {
+      title: "Software Architecture",
+      stars: 7
+    },
+    {
+      title: "Data Structures",
+      stars: 8
+    },
+    {
+      title: "Game Development",
+      stars: 8
+    },
+    {
+      title: "Design",
+      stars: 6
+    },
+    {
+      title: "Management",
+      stars: 7
+    }
+  ];
+
+  const languages = [
+    {
+      title: "Portuguese (Native)",
+      description: "Fluent"
+    },
+    {
+      title: "English",
+      description: "Advanced"
+    },
+    {
+      title: "Spanish",
+      description: "Low Intermediary"
+    }
+  ];
+
+  const tags = [
+    "FullStack",
+    "Software",
+    "Developer",
+    "Portuguese",
+    "English",
+    "Spanish",
+    "C++",
+    "C#",
+    "Java",
+    "Go",
+    "Javascript",
+    "Dart",
+    "Front-end",
+    "React",
+    "Vue",
+    "AngularJS",
+    "jQuery",
+    "Razor",
+    "Css",
+    "JSS",
+    "Less",
+    "Sass",
+    "Bootstrap",
+    "Material-UI",
+    "ant Design",
+    "MDBootstrap",
+    "Ionic",
+    "HTML",
+    "Telerik",
+    "KendoUI",
+    "DevExpress",
+    "SyncFusion",
+    "PrimeFaces",
+    "RichFaces",
+    "Adobe Flash",
+    "Back-end",
+    "Asp.Net Web Forms",
+    "Asp.Net MVC",
+    "Asp.Net Core",
+    "JBoss Seam",
+    "Java Spring",
+    "node.js",
+    "Asp Classic",
+    "WCF",
+    "Desktop",
+    "Universal Apps",
+    "WPF",
+    "VB.Net",
+    "Mobile",
+    "Flutter",
+    "Android",
+    "Cordova",
+    "Ionic",
+    "Xamarin",
+    "Windows Phone",
+    "Architecture",
+    "MVVM",
+    "MVC",
+    "DDD",
+    "TDD",
+    "OOP",
+    "Design Patterns",
+    "Clean Code",
+    "Microservices",
+    "SOAP",
+    "Rest",
+    "E-Commerce",
+    "UML",
+    "DevOps",
+    "Infrastructure",
+    "Azure DevOps (Visual Studio Online)",
+    "Windows",
+    "Mac",
+    "Linux",
+    "Docker",
+    "Azure",
+    "Aws",
+    "Google Cloud Platform",
+    "JBoss",
+    "Apache Tomcat",
+    "IIS",
+    "Continuous Integration",
+    "GIt",
+    "SVN",
+    "Mercurial",
+    "Source Code",
+    "TFS",
+    "GitHub",
+    "Data Structures",
+    "MS Sql Server",
+    "Oracle 11g",
+    "MySql",
+    "Redis",
+    "Mongo",
+    "Management",
+    "Azure DevOps (Visual Studio Online)",
+    "Trello",
+    "Jira",
+    "GitHub",
+    "ZenHub",
+    "MS Project",
+    "Excel",
+    "Game Developer",
+    "Unity 2D/3D",
+    "Maya",
+    "3D Studio Max",
+    "Design",
+    "Photoshop",
+    "InDesign",
+    "PageMaker",
+    "Corel Draw",
+    "Illustrator",
+    "Personal",
+    "Easy to work with",
+    "Easy learning",
+    "contributing member",
+    "transparent",
+    "proactive",
+    "easy adaptation",
+    " excellent interpersonal skills"
+  ];
+
 class Skill extends React.Component {
   render() {
-    const { classes, offset } = this.props;
-    const data = [
-      {
-        title: "Front-End",
-        stars: 10
-      },
-      {
-        title: "Back-End",
-        stars: 10
-      },
-      {
-        title: "Desktop",
-        stars: 8
-      },
-      {
-        title: "Mobile",
-        stars: 7
-      },
-      {
-        title: "DevOps/Infrastructure",
-        stars: 7
-      },
-      {
-        title: "Software Architecture",
-        stars: 7
-      },
-      {
-        title: "Data Structures",
-        stars: 8
-      },
-      {
-        title: "Game Development",
-        stars: 8
-      },
-      {
-        title: "Design",
-        stars: 6
-      },
-      {
-        title: "Management",
-        stars: 7
-      }
-    ];
-
-    const languages = [
-      {
-        title: "Portuguese (Native)",
-        description: "Fluent"
-      },
-      {
-        title: "English",
-        description: "Advanced"
-      },
-      {
-        title: "Spanish",
-        description: "Low Intermediary"
-      }
-    ];
-
-    const tags = [
-      "FullStack",
-      "Software",
-      "Developer",
-      "Portuguese",
-      "English",
-      "Spanish",
-      "C++",
-      "C#",
-      "Java",
-      "Go",
-      "Javascript",
-      "Dart",
-      "Front-end",
-      "React",
-      "Vue",
-      "AngularJS",
-      "jQuery",
-      "Razor",
-      "Css",
-      "JSS",
-      "Less",
-      "Sass",
-      "Bootstrap",
-      "Material-UI",
-      "ant Design",
-      "MDBootstrap",
-      "Ionic",
-      "HTML",
-      "Telerik",
-      "KendoUI",
-      "DevExpress",
-      "SyncFusion",
-      "PrimeFaces",
-      "RichFaces",
-      "Adobe Flash",
-      "Back-end",
-      "Asp.Net Web Forms",
-      "Asp.Net MVC",
-      "Asp.Net Core",
-      "JBoss Seam",
-      "Java Spring",
-      "node.js",
-      "Asp Classic",
-      "WCF",
-      "Desktop",
-      "Universal Apps",
-      "WPF",
-      "VB.Net",
-      "Mobile",
-      "Flutter",
-      "Android",
-      "Cordova",
-      "Ionic",
-      "Xamarin",
-      "Windows Phone",
-      "Architecture",
-      "MVVM",
-      "MVC",
-      "DDD",
-      "TDD",
-      "OOP",
-      "Design Patterns",
-      "Clean Code",
-      "Microservices",
-      "SOAP",
-      "Rest",
-      "E-Commerce",
-      "UML",
-      "DevOps",
-      "Infrastructure",
-      "Azure DevOps (Visual Studio Online)",
-      "Windows",
-      "Mac",
-      "Linux",
-      "Docker",
-      "Azure",
-      "Aws",
-      "Google Cloud Platform",
-      "JBoss",
-      "Apache Tomcat",
-      "IIS",
-      "Continuous Integration",
-      "GIt",
-      "SVN",
-      "Mercurial",
-      "Source Code",
-      "TFS",
-      "GitHub",
-      "Data Structures",
-      "MS Sql Server",
-      "Oracle 11g",
-      "MySql",
-      "Redis",
-      "Mongo",
-      "Management",
-      "Azure DevOps (Visual Studio Online)",
-      "Trello",
-      "Jira",
-      "GitHub",
-      "ZenHub",
-      "MS Project",
-      "Excel",
-      "Game Developer",
-      "Unity 2D/3D",
-      "Maya",
-      "3D Studio Max",
-      "Design",
-      "Photoshop",
-      "InDesign",
-      "PageMaker",
-      "Corel Draw",
-      "Illustrator",
-      "Personal",
-      "Easy to work with",
-      "Easy learning",
-      "contributing member",
-      "transparent",
-      "proactive",
-      "easy adaptation",
-      " excellent interpersonal skills"
-    ];
+    const { classes, offset, parallax } = this.props;
 
     return (
       <React.Fragment>
@@ -223,7 +224,7 @@ class Skill extends React.Component {
           offset={offset}
           speed={0}
           factor={1}
-          style={{ backgroundColor: "#ffffff" }}
+          style={{ backgroundColor: "#ffffff", opacity: .9 }}
         />
 
         <ParallaxLayer offset={offset} speed={0.5} factor={1}>
@@ -305,7 +306,7 @@ class Skill extends React.Component {
                 }}
               >
                 {tags.map((item, key) => (
-                  <Tag color="#2db7f5" style={{ margin: 5 }}>
+                  <Tag onClick={() => parallax(3)} color="#2db7f5" key={key} style={{ margin: 5 }}>
                     {item}
                   </Tag>
                 ))}
@@ -325,4 +326,4 @@ class Skill extends React.Component {
   }
 }
 
-export default injectCss(styles)(Skill);
+export default injectSheet(styles)(Skill);
