@@ -406,10 +406,10 @@ class Resume extends React.Component {
         <ParallaxLayer offset={offset} speed={0.5} factor={2}>
           <div className={classes.flexContainer}>
             <div className={classes.title}>
-              <h2>RESUME</h2>
+              <h2 onClick={() => parallax(4)}>RESUME</h2>
             </div>
 
-            <Collapse bordered={false} style={{ width: "100%" }}>
+            <Collapse bordered={false} style={{ width: "100%" }} defaultActiveKey={['2']}>
               <Collapse.Panel
                 header={<h3>Experience</h3>}
                 key={1}
@@ -430,7 +430,7 @@ class Resume extends React.Component {
                 <TimeLineBuilder
                   {...this.props}
                   items={education}
-                  iconType="calendar"
+                  iconType="bank"
                 />
               </Collapse.Panel>
 
@@ -442,7 +442,7 @@ class Resume extends React.Component {
                 <TimeLineBuilder
                   {...this.props}
                   items={certifications}
-                  iconType="calendar"
+                  iconType="safety-certificate"
                 />
               </Collapse.Panel>
 
@@ -454,7 +454,7 @@ class Resume extends React.Component {
                 <TimeLineBuilder
                   {...this.props}
                   items={readings}
-                  iconType="calendar"
+                  iconType="read"
                 />
               </Collapse.Panel>
             </Collapse>

@@ -1,14 +1,14 @@
 import React from "react";
 import injectSheet from "react-jss";
-import { Parallax} from "react-spring/addons";
-import { Presentation, AboutMe, Skill, Resume } from "../template";
+import { Parallax } from "react-spring/addons";
+import { Presentation, AboutMe, Skill, Resume, Contact } from "../template";
 
 const styles = {};
 
 class Home extends React.Component {
   render() {
     return (
-      <Parallax ref={ref => (this.parallax = ref)} pages={4} scrolling={true}>
+      <Parallax ref={ref => (this.parallax = ref)} pages={5} scrolling={true}>
         <Presentation
           parallax={idx => {
             this.parallax.scrollTo(idx);
@@ -34,6 +34,13 @@ class Home extends React.Component {
             this.parallax.scrollTo(idx);
           }}
           offset={3}
+        />
+
+        <Contact
+          parallax={idx => {
+            this.parallax.scrollTo(idx);
+          }}
+          offset={4}
         />
 
         {/* <ParallaxLayer
