@@ -2,34 +2,38 @@ import React from "react";
 import injectSheet from "react-jss";
 import { Icon, Timeline, Collapse } from "antd";
 
-const styles = {
-  title: {
-    // outline: "1px solid green",
-    width: "100%",
-    marginRight: "50px",
-    marginBottom: "30px",
-    borderBottom: "1px solid #eeeeee"
-  },
-  flexContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-    padding: "50px 100px",
-    minHeight: window.screen.height,
-    alignContent: 'baseline'
-    
-  },
-  flexBlock: {
-    flex: "1 0 0",
-    maxWidth: "50%",
-    // outline: "1px solid blue",
-    marginRight: "50px",
-    marginBottom: "30px"
-  },
-  content: {
-    width: "100%",
-    marginRight: "50px"
-  }
-};
+const styles = theme => ({
+  ...theme
+});
+
+// const styles = {
+//   title: {
+//     // outline: "1px solid green",
+//     width: "100%",
+//     marginRight: "50px",
+//     marginBottom: "30px",
+//     borderBottom: "1px solid #eeeeee"
+//   },
+//   flexContainer: {
+//     display: "flex",
+//     flexWrap: "wrap",
+//     padding: "50px 100px",
+//     minHeight: window.screen.height,
+//     alignContent: 'baseline'
+
+//   },
+//   flexBlock: {
+//     flex: "1 0 0",
+//     maxWidth: "50%",
+//     // outline: "1px solid blue",
+//     marginRight: "50px",
+//     marginBottom: "30px"
+//   },
+//   content: {
+//     width: "100%",
+//     marginRight: "50px"
+//   }
+// };
 
 const experiences = [
   {
@@ -344,40 +348,36 @@ const readings = [
 const TimeLineBuilder = props => {
   const { classes } = props;
   return (
-    <div className={classes.flexContainer}>
-      <div className={classes.flexBlock}>
-        <Timeline mode="right" style={{ marginRight: 100 }}>
-          {props.items.map((item, key) => (
-            <Timeline.Item
-              key={key}
-              dot={
-                <Icon
-                  type={props.iconType}
-                  theme="filled"
-                  style={{ fontSize: "16px" }}
-                />
-              }
-            >
-              <h3>{item.title}</h3>
-              {item.date}
-              <div
-                style={{
-                  width: "100%",
-                  float: "right",
-                  marginRight: "calc(-100% - 30px)",
-                  marginTop: -30,
-                  textAlign: "justify"
-                }}
-              >
-                <h4>{item.rule}</h4>
-                {item.description}
-              </div>
-              <div style={{ clear: "both" }} />
-            </Timeline.Item>
-          ))}
-        </Timeline>
-      </div>
-    </div>
+    <Timeline mode="right" style={{ marginRight: '55%' }}>
+      {props.items.map((item, key) => (
+        <Timeline.Item
+          key={key}
+          dot={
+            <Icon
+              type={props.iconType}
+              theme="filled"
+              style={{ fontSize: "16px" }}
+            />
+          }
+        >
+          <h3>{item.title}</h3>
+          {item.date}
+          <div
+            style={{
+              width: "100%",
+              float: "right",
+              marginRight: "calc(-100% - 30px)",
+              marginTop: -30,
+              textAlign: "justify"
+            }}
+          >
+            <h4>{item.rule}</h4>
+            {item.description}
+          </div>
+          <div style={{ clear: "both" }} />
+        </Timeline.Item>
+      ))}
+    </Timeline>
   );
 };
 
@@ -393,7 +393,7 @@ class Resume extends React.Component {
     }, 3000);
 
     return (
-      <React.Fragment>
+      <div id="resume" className={classes.containerWrapper}>
         <div className={classes.flexContainer}>
           <div className={classes.title}>
             <h2>RESUME</h2>
@@ -453,7 +453,7 @@ class Resume extends React.Component {
             </Collapse.Panel>
           </Collapse>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }

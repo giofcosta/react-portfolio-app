@@ -1,20 +1,24 @@
 import React from "react";
 import injectSheet from "react-jss";
-// import { Parallax, ParallaxLayer } from "react-spring/addons";
 import { Presentation, AboutMe, Skill, Resume, Contact } from "../template";
 
-const styles = {};
+const styles = theme => ({
+  ...theme
+});
 
 class Home extends React.Component {
   render() {
+    const { classes } = this.props;
     return (
       <React.Fragment>
         <Presentation
+          className={classes.flexBlock}
           parallax={idx => {
             this.parallax.scrollTo(idx);
           }}
           offset={0}
         />
+
         <AboutMe
           parallax={idx => {
             this.parallax.scrollTo(idx);

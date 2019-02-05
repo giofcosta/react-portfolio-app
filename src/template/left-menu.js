@@ -1,39 +1,44 @@
 import React, { Component } from "react";
+import { HashLink as Link } from "react-router-hash-link";
 import { Menu, Icon, Button } from "antd";
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 
 class LeftMenu extends Component {
   render() {
+    const scroll = (el) => {el.scrollIntoView({ behavior: 'smooth', block: 'start' })}
     const { mode } = this.props;
     return (
       <Menu mode={mode}>
         <Menu.Item key="about-me">
-          <a href="">
+          <Link to="/#about-me" scroll={el => scroll(el)}>
             <Icon type="user" />
             About Me
-          </a>
+          </Link>
         </Menu.Item>
         <Menu.Item key="skills">
-          <a href="">
+          <Link to="/#skills" scroll={el => scroll(el)}>
             <Icon type="code" theme="filled" />
             Skills
-          </a>
+          </Link>
         </Menu.Item>
         <Menu.Item key="resume">
-          <a href="">
+          <Link to="/#resume" scroll={el => scroll(el)}>
             <Icon type="bars" />
             Resume
-          </a>
+          </Link>
         </Menu.Item>
-        <Menu.Item key="contact" >
-          <a href="">
+        <Menu.Item key="contact">
+          <Link to="/#contact" scroll={el => scroll(el)}>
             <Icon type="mail" theme="filled" />
             Contact
-          </a>
+          </Link>
         </Menu.Item>
 
-        <Button type="primary" icon="download" size="large" style={{float: 'right', margin: '13px 0px'}}>
+        <Button
+          type="primary"
+          icon="download"
+          size="large"
+          style={{ float: "right", margin: "13px 0px" }}
+        >
           Download My CV
         </Button>
       </Menu>

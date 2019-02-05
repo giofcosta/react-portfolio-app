@@ -54,132 +54,64 @@ const styles = {
 
 class Presentation extends React.Component {
   render() {
-    const { classes, parallax, offset } = this.props;
-    console.log(parallax);
+    const { classes } = this.props;
 
     return (
-      <React.Fragment>
-        <Parallax bgImage={resources.presentation} strength={1000} bgImageStyle={{ opacity: 0.3 }}>
+      <div id="presentation" className={classes.contentWrapper}>
+        <Parallax
+          bgImage={resources.presentation}
+          strength={1000}
+          bgImageStyle={{ opacity: 0.3 }}
+        >
           <div style={{ height: window.screen.height }}>
-          <div className={classes.main}>
-            <p className={classes.textOne}>
-              GREETINGS FRIEND.
-              <br />
-              <small>Welcome to my website!</small>
-            </p>
-            <div className={classes.textTwo}>
-              <Typing speed={30}>
-                <small>
-                  <Typing.Delay ms={600} />
-                  I am a
-                  <Typing.Delay ms={600} />
-                  <Typing.Speed ms={60} />
-                  <b> FULL-STACK,</b>
-                  <Typing.Delay ms={600} />
-                  <b> MOBILE</b>
-                  <Typing.Delay ms={600} /> and <b>GAME DEVELOPER</b>. <br />
-                  <Typing.Delay ms={600} />
-                  <Typing.Speed ms={30} />
-                  In this website,
-                  <Typing.Delay ms={200} /> you can see everything about my
-                  career,
+            <div className={classes.main}>
+              <p className={classes.textOne}>
+                GREETINGS FRIEND.
+                <br />
+                <small>Welcome to my website!</small>
+              </p>
+              <div className={classes.textTwo}>
+                <Typing speed={30}>
+                  <small>
+                    <Typing.Delay ms={600} />
+                    I am a
+                    <Typing.Delay ms={600} />
+                    <Typing.Speed ms={60} />
+                    <b> FULL-STACK,</b>
+                    <Typing.Delay ms={600} />
+                    <b> MOBILE</b>
+                    <Typing.Delay ms={600} /> and <b>GAME DEVELOPER</b>. <br />
+                    <Typing.Delay ms={600} />
+                    <Typing.Speed ms={30} />
+                    In this website,
+                    <Typing.Delay ms={200} /> you can see everything about my
+                    career,
+                    <br />
+                    <Typing.Delay ms={200} /> portfolio
+                    <Typing.Delay ms={200} /> and my work.
+                  </small>
                   <br />
-                  <Typing.Delay ms={200} /> portfolio
-                  <Typing.Delay ms={200} /> and my work.
-                </small>
-                <br />
-                <br />
-                <Typing.Delay ms={1000} />
-                <Typing.Speed ms={100} />
-                I hope you enjoy.
-                <Typing.Delay ms={1000} />
-                <Typing.Speed ms={100} />
-                <b> Giovanni Fernandes.</b>
-              </Typing>
+                  <br />
+                  <Typing.Delay ms={1000} />
+                  <Typing.Speed ms={100} />
+                  I hope you enjoy.
+                  <Typing.Delay ms={1000} />
+                  <Typing.Speed ms={100} />
+                  <b> Giovanni Fernandes.</b>
+                </Typing>
+              </div>
+              <Button
+                className={classes.button}
+                ghost
+                size={"large"}
+              >
+                <Icon type="play-circle" />
+                More about me
+              </Button>
             </div>
-            <Button
-              className={classes.button}
-              ghost
-              size={"large"}
-              onClick={() => parallax(1)}
-            >
-              <Icon type="play-circle" />
-              More about me
-            </Button>
-          </div>
           </div>
         </Parallax>
-      
-      
-      
-        {/* <ParallaxLayer offset={offset} speed={0.5} factor={1}>
-          <div className={classes.main}>
-            <p className={classes.textOne}>
-              GREETINGS FRIEND.
-              <br />
-              <small>Welcome to my website!</small>
-            </p>
-          </div>
-        </ParallaxLayer>
-        <ParallaxLayer offset={offset} speed={0.3} factor={1}>
-          <div className={classes.main}>
-            <div className={classes.textTwo}>
-              <Typing speed={30}>
-                <small>
-                  <Typing.Delay ms={600} />
-                  I am a
-                  <Typing.Delay ms={600} />
-                  <Typing.Speed ms={60} />
-                  <b> FULL-STACK,</b>
-                  <Typing.Delay ms={600} />
-                  <b> MOBILE</b>
-                  <Typing.Delay ms={600} /> and <b>GAME DEVELOPER</b>. <br />
-                  <Typing.Delay ms={600} />
-                  <Typing.Speed ms={30} />
-                  In this website,
-                  <Typing.Delay ms={200} /> you can see everything about my
-                  career,
-                  <br />
-                  <Typing.Delay ms={200} /> portfolio
-                  <Typing.Delay ms={200} /> and my work.
-                </small>
-                <br />
-                <br />
-                <Typing.Delay ms={1000} />
-                <Typing.Speed ms={100} />
-                I hope you enjoy.
-                <Typing.Delay ms={1000} />
-                <Typing.Speed ms={100} />
-                <b> Giovanni Fernandes.</b>
-              </Typing>
-            </div>
-          </div>
-        </ParallaxLayer>
-        <ParallaxLayer offset={offset} speed={0.1} factor={1}>
-          <div className={classes.main}>
-            <Button
-              className={classes.button}
-              ghost
-              size={"large"}
-              onClick={() => parallax(1)}
-            >
-              <Icon type="play-circle" />
-              More about me
-            </Button>
-          </div>
-        </ParallaxLayer> */}
-
-        {/* <ParallaxLayer
-          offset={0}
-          speed={0.1}
-          onClick={() => parallax(1)}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        /> */}
-      </React.Fragment>
+      </div>
     );
   }
 }

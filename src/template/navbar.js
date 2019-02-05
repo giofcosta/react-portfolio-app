@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LeftMenu from './left-menu'
-import RightMenu from './right-menu'
+import { HashLink as Link } from "react-router-hash-link";
 import { Drawer, Button } from 'antd';
 
 class Navbar extends Component {
@@ -21,10 +21,11 @@ class Navbar extends Component {
   };
 
   render() {
+		const scroll = (el) => {el.scrollIntoView({ behavior: 'smooth', block: 'start' })}
     return (
         <nav className="menuBar">
         	<div className="logo">
-        		<a href="">Giovanni</a>
+        		<Link to="/#presentation" scroll={el => scroll(el)}>Giovanni</Link>
         	</div>
         	<div className="menuCon">
         		

@@ -4,35 +4,9 @@ import { Rate, List, Icon, Tag } from "antd";
 import { Parallax } from "react-parallax";
 import images from "../resources/images";
 
-const styles = {
-  title: {
-    // outline: "1px solid green",
-    width: "100%",
-    marginRight: "50px",
-    marginBottom: "30px",
-    borderBottom: "1px solid #eeeeee"
-  },
-  flexContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-    // outline: "1px solid red",
-    // height: '100%',
-    padding: "50px 0",
-    paddingLeft: "100px"
-  },
-  flexBlock: {
-    flex: "1 0 0",
-    maxWidth: "50%",
-    overflowY: "auto",
-    // outline: "1px solid blue",
-    marginRight: "100px",
-    marginBottom: "30px"
-  },
-  content: {
-    width: "100%",
-    marginRight: "100px"
-  }
-};
+const styles = theme => ({
+  ...theme
+});
 
 const data = [
   {
@@ -220,8 +194,8 @@ class Skill extends React.Component {
     const { classes } = this.props;
 
     return (
-      <React.Fragment>
-        <Parallax bgImage={images.presentationOne} strength={1000} bgImageStyle={{opacity:0.1}}>
+      <div id="skills" className={classes.containerWrapper}>
+        <Parallax bgImage={images.presentationOne} strength={1000} bgImageStyle={{opacity:0.03}}>
           <div className={classes.flexContainer} >
             <div className={classes.title}>
               {" "}
@@ -306,15 +280,11 @@ class Skill extends React.Component {
                 ))}
               </div>
               <p style={{ float: "right" }}>
-                <br />
-                <br />
-                <br />
-                Waiting for new challenges...
               </p>
             </div>
           </div>
         </Parallax>
-      </React.Fragment>
+      </div>
     );
   }
 }

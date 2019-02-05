@@ -38,6 +38,7 @@ body {
   border-top: solid 1px #e8e8e8;
   overflow: auto;
   box-shadow: 0 0 30px #f3f1f1;
+  height: 100px;
 }
 
 /* Presentation */
@@ -232,11 +233,3 @@ body {
   }
 }
 
-img {
-  height: 120px;
-}
-
-.cover {
-  width: 260px;
-  object-fit: cover;
-}
