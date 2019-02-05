@@ -3,14 +3,15 @@ import resources from "../resources/images";
 import Typing from "react-typing-animation";
 import { Button, Icon } from "antd";
 import injectSheet from "react-jss";
-import { ParallaxLayer } from "react-spring/addons";
+// import { ParallaxLayer } from "react-spring/addons";
+import { Parallax } from "react-parallax";
 
 const styles = {
   "@global": {
-    body: {
-      backgroundImage: `url('${resources.presentation}')`,
-      backgroundSize: "cover"
-    }
+    // body: {
+    //   backgroundImage: `url('${resources.presentation}')`,
+    //   backgroundSize: "cover"
+    // }
   },
   main: `
     position: relative;
@@ -58,7 +59,60 @@ class Presentation extends React.Component {
 
     return (
       <React.Fragment>
-        <ParallaxLayer offset={offset} speed={.5} factor={1}>
+        <Parallax bgImage={resources.presentation} strength={1000} bgImageStyle={{ opacity: 0.3 }}>
+          <div style={{ height: window.screen.height }}>
+          <div className={classes.main}>
+            <p className={classes.textOne}>
+              GREETINGS FRIEND.
+              <br />
+              <small>Welcome to my website!</small>
+            </p>
+            <div className={classes.textTwo}>
+              <Typing speed={30}>
+                <small>
+                  <Typing.Delay ms={600} />
+                  I am a
+                  <Typing.Delay ms={600} />
+                  <Typing.Speed ms={60} />
+                  <b> FULL-STACK,</b>
+                  <Typing.Delay ms={600} />
+                  <b> MOBILE</b>
+                  <Typing.Delay ms={600} /> and <b>GAME DEVELOPER</b>. <br />
+                  <Typing.Delay ms={600} />
+                  <Typing.Speed ms={30} />
+                  In this website,
+                  <Typing.Delay ms={200} /> you can see everything about my
+                  career,
+                  <br />
+                  <Typing.Delay ms={200} /> portfolio
+                  <Typing.Delay ms={200} /> and my work.
+                </small>
+                <br />
+                <br />
+                <Typing.Delay ms={1000} />
+                <Typing.Speed ms={100} />
+                I hope you enjoy.
+                <Typing.Delay ms={1000} />
+                <Typing.Speed ms={100} />
+                <b> Giovanni Fernandes.</b>
+              </Typing>
+            </div>
+            <Button
+              className={classes.button}
+              ghost
+              size={"large"}
+              onClick={() => parallax(1)}
+            >
+              <Icon type="play-circle" />
+              More about me
+            </Button>
+          </div>
+          </div>
+        </Parallax>
+      
+      
+      
+        {/* <ParallaxLayer offset={offset} speed={0.5} factor={1}>
           <div className={classes.main}>
             <p className={classes.textOne}>
               GREETINGS FRIEND.
@@ -101,14 +155,19 @@ class Presentation extends React.Component {
             </div>
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={offset} speed={.1} factor={1}>
+        <ParallaxLayer offset={offset} speed={0.1} factor={1}>
           <div className={classes.main}>
-            <Button className={classes.button} ghost size={"large"} onClick={() => parallax(1)}>
+            <Button
+              className={classes.button}
+              ghost
+              size={"large"}
+              onClick={() => parallax(1)}
+            >
               <Icon type="play-circle" />
               More about me
             </Button>
           </div>
-        </ParallaxLayer>
+        </ParallaxLayer> */}
 
         {/* <ParallaxLayer
           offset={0}

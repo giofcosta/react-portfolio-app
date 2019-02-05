@@ -1,7 +1,6 @@
 import React from "react";
 import injectSheet from "react-jss";
 import { Icon, Timeline, Collapse } from "antd";
-import { ParallaxLayer } from "react-spring/addons";
 
 const styles = {
   title: {
@@ -14,10 +13,10 @@ const styles = {
   flexContainer: {
     display: "flex",
     flexWrap: "wrap",
-    // outline: "1px solid red",
-    // height: '100%',
-    padding: "50px 0",
-    paddingLeft: "100px"
+    padding: "50px 100px",
+    minHeight: window.screen.height,
+    alignContent: 'baseline'
+    
   },
   flexBlock: {
     flex: "1 0 0",
@@ -316,7 +315,8 @@ const readings = [
     date: ""
   },
   {
-    title: "System Architecture for Web With Java Using Design Patterns and Frameworks",
+    title:
+      "System Architecture for Web With Java Using Design Patterns and Frameworks",
     rule: "Evandro Carlos Teruel",
     description: "",
     date: ""
@@ -338,7 +338,7 @@ const readings = [
     rule: "Sun Tsu",
     description: "",
     date: ""
-  },
+  }
 ];
 
 const TimeLineBuilder = props => {
@@ -385,7 +385,7 @@ class Resume extends React.Component {
   state = { loading: true };
 
   render() {
-    const { classes, offset, parallax } = this.props;
+    const { classes } = this.props;
 
     let ctx = this;
     setTimeout(() => {
@@ -394,72 +394,65 @@ class Resume extends React.Component {
 
     return (
       <React.Fragment>
-        <ParallaxLayer
-          offset={offset}
-          speed={0}
-          factor={2}
-          style={{
-            backgroundColor: "#ffffff"
-          }}
-        />
-
-        <ParallaxLayer offset={offset} speed={0.5} factor={2}>
-          <div className={classes.flexContainer}>
-            <div className={classes.title}>
-              <h2 onClick={() => parallax(4)}>RESUME</h2>
-            </div>
-
-            <Collapse bordered={false} style={{ width: "100%" }} defaultActiveKey={['2']}>
-              <Collapse.Panel
-                header={<h3>Experience</h3>}
-                key={1}
-                style={{ border: "none" }}
-              >
-                <TimeLineBuilder
-                  {...this.props}
-                  items={experiences}
-                  iconType="calendar"
-                />
-              </Collapse.Panel>
-
-              <Collapse.Panel
-                header={<h3>Education</h3>}
-                key={2}
-                style={{ border: "none" }}
-              >
-                <TimeLineBuilder
-                  {...this.props}
-                  items={education}
-                  iconType="bank"
-                />
-              </Collapse.Panel>
-
-              <Collapse.Panel
-                header={<h3>Certifications</h3>}
-                key={3}
-                style={{ border: "none" }}
-              >
-                <TimeLineBuilder
-                  {...this.props}
-                  items={certifications}
-                  iconType="safety-certificate"
-                />
-              </Collapse.Panel>
-
-              <Collapse.Panel
-                header={<h3>Readings</h3>}
-                key={4}
-                style={{ border: "none" }}
-              >
-                <TimeLineBuilder
-                  {...this.props}
-                  items={readings}
-                  iconType="read"
-                />
-              </Collapse.Panel>
-            </Collapse>
+        <div className={classes.flexContainer}>
+          <div className={classes.title}>
+            <h2>RESUME</h2>
           </div>
-        </ParallaxLayer>
+
+          <Collapse
+            bordered={false}
+            style={{ width: "100%" }}
+            defaultActiveKey={["2"]}
+          >
+            <Collapse.Panel
+              header={<h3>Experience</h3>}
+              key={1}
+              style={{ border: "none" }}
+            >
+              <TimeLineBuilder
+                {...this.props}
+                items={experiences}
+                iconType="calendar"
+              />
+            </Collapse.Panel>
+
+            <Collapse.Panel
+              header={<h3>Education</h3>}
+              key={2}
+              style={{ border: "none" }}
+            >
+              <TimeLineBuilder
+                {...this.props}
+                items={education}
+                iconType="bank"
+              />
+            </Collapse.Panel>
+
+            <Collapse.Panel
+              header={<h3>Certifications</h3>}
+              key={3}
+              style={{ border: "none" }}
+            >
+              <TimeLineBuilder
+                {...this.props}
+                items={certifications}
+                iconType="safety-certificate"
+              />
+            </Collapse.Panel>
+
+            <Collapse.Panel
+              header={<h3>Readings</h3>}
+              key={4}
+              style={{ border: "none" }}
+            >
+              <TimeLineBuilder
+                {...this.props}
+                items={readings}
+                iconType="read"
+              />
+            </Collapse.Panel>
+          </Collapse>
+        </div>
       </React.Fragment>
     );
   }

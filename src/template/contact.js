@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Icon } from "antd";
-import { ParallaxLayer } from "react-spring/addons";
+import { Parallax } from "react-parallax";
 import injectCSS from "react-jss";
 import images from "../resources/images";
 
@@ -18,7 +18,9 @@ const styles = {
     // outline: "1px solid red",
     // height: '100%',
     padding: "50px 0",
-    paddingLeft: "100px"
+    paddingLeft: "100px",
+    minHeight: window.screen.height,
+    alignContent: 'baseline'
   },
   flexBlock: {
     flex: "1 0 0",
@@ -30,39 +32,25 @@ const styles = {
   content: {
     width: "100%",
     marginRight: "50px"
-  }
+  },
 };
 
 class Contact extends React.Component {
   render() {
-    const { classes, offset } = this.props;
+    const { classes } = this.props;
     return (
       <React.Fragment>
-        <ParallaxLayer
-          offset={offset}
-          speed={0}
-          factor={1}
-          style={{ backgroundColor: "#ffffff" }}
-        />
-        <ParallaxLayer
-          offset={offset}
-          speed={0.3}
-          factor={1}
-          style={{
-            backgroundImage: `url(${images.contactUs})`,
-            backgroundSize: "cover",
-            opacity: 0.5,
-            marginTop: 360
-          }}
-        />
-
-        <ParallaxLayer offset={offset} speed={0.5} factor={1}>
+        <Parallax
+          bgImage={images.contactUs}
+          strength={300}
+          bgImageStyle={{ opacity: 0.03, backgroundColor: "#ffffff" }}
+        >
           <div className={classes.flexContainer}>
             <div className={classes.title}>
               <h2>CONTACT</h2>
             </div>
             <div className={classes.flexBlock}>
-              <Card bordered={false} style={{ width: 300, marginTop: 16 }}>
+              <Card bordered={false} style={{ width: 300, marginTop: 16, background: 'none' }}>
                 <Card.Meta
                   avatar={
                     <Icon
@@ -82,7 +70,7 @@ class Contact extends React.Component {
                   }
                 />
               </Card>
-              <Card bordered={false} style={{ width: 300, marginTop: 16 }}>
+              <Card bordered={false} style={{ width: 300, marginTop: 16, background: 'none' }}>
                 <Card.Meta
                   avatar={
                     <Icon
@@ -99,7 +87,7 @@ class Contact extends React.Component {
                   }
                 />
               </Card>
-              <Card bordered={false} style={{ width: 300, marginTop: 16 }}>
+              <Card bordered={false} style={{ width: 300, marginTop: 16, background: 'none' }}>
                 <Card.Meta
                   avatar={
                     <Icon type="mail" theme="filled" style={{ fontSize: 24 }} />
@@ -186,7 +174,7 @@ class Contact extends React.Component {
               </div>
             </div>
           </div>
-        </ParallaxLayer>
+        </Parallax>
       </React.Fragment>
     );
   }
