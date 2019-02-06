@@ -1,114 +1,117 @@
 import React from "react";
 import resources from "../resources/images";
-import Typing from "react-typing-animation";
+import Typist from "react-typist";
 import { Button, Icon } from "antd";
 import injectSheet from "react-jss";
-// import { ParallaxLayer } from "react-spring/addons";
+import ScrollAnimation from "react-animate-on-scroll";
 import { Parallax } from "react-parallax";
+import { HashLink as Link } from "react-router-hash-link";
 
-const styles = {
-  "@global": {
-    // body: {
-    //   backgroundImage: `url('${resources.presentation}')`,
-    //   backgroundSize: "cover"
-    // }
+const styles = theme => ({
+  ...theme,
+  textOne: {
+    position: "absolute",
+    width: "50%",
+    bottom: 100,
+    left: 100,
+    lineHeight: "80px",
+    color: "#ffffff",
+    fontSize: "4em",
+    fontWeight: 800,
+    willChange: "transform, opacity",
+    textAlign: "left",
+    textShadow: "1px 1px 5px #000000"
   },
-  main: `
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `,
-  textOne: `
-    margin-top: -400px;
-    position: relative;
-    width: 90%;
-    line-height: 80px;
-    color: #f0f0f0;
-    font-size: 4em;
-    font-weight: 800;
-    will-change: transform, opacity;
-    text-align: right;
-  `,
-  textTwo: `
-    margin-top: 150px;
-    position: relative;
-    width: 90%;
-    color: #f0f0f0;
-    font-size: 2.5em;
-    will-change: transform, opacity;
-    text-align: right;
-  `,
-  button: `
-    margin-top: 700px;
-    font-size: 2em;
-    font-weight: 800;
-    text-transform: uppercase;
-    height: 70px;
-    width: 340px;
-  `
-};
+  textTwo: {
+    position: "absolute",
+    width: "530px",
+    top: 250,
+    right: 100,
+    color: "#ffffff",
+    fontSize: "2.5em",
+    textAlign: "justify",
+    textShadow: "1px 1px 5px #000000",
+    lineHeight: "40px"
+  },
+  button: {
+    position: "absolute",
+    bottom: 182,
+    right: 100,
+    fontSize: "50px",
+    height: 68,
+    textTransform: "uppercase",
+    textShadow: "1px 1px 5px #000000",
+    boxShadow: "1px 1px 5px #000000",
+    lineHeight: "78px !important"
+  }
+});
 
 class Presentation extends React.Component {
   render() {
     const { classes } = this.props;
-
+    const scroll = el => {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
     return (
       <div id="presentation" className={classes.contentWrapper}>
         <Parallax
           bgImage={resources.presentation}
           strength={500}
-          bgImageStyle={{  }}
+          bgImageStyle={{
+            objectFit: "scale-down",
+            width: "150%",
+            height: "150%",
+            left: "960px"
+          }}
         >
-          <div style={{ height: window.screen.height }}>
-            <div className={classes.main}>
+          <div className={classes.flexContainer} >
+            <ScrollAnimation animateIn="fadeIn" delay="1000" animateOnce={true}>
               <p className={classes.textOne}>
-                GREETINGS FRIEND.
+                <span style={{ fontSize: 63 }}>WELCOME</span>
+                <span style={{ fontSize: 38 }}> to my</span>
                 <br />
-                <small>Welcome to my website!</small>
+                <span style={{ fontSize: 98 }}>WEBSITE</span>
               </p>
-              <div className={classes.textTwo}>
-                <Typing speed={30}>
-                  <small>
-                    <Typing.Delay ms={600} />
-                    I am a
-                    <Typing.Delay ms={600} />
-                    <Typing.Speed ms={60} />
-                    <b> FULL-STACK,</b>
-                    <Typing.Delay ms={600} />
-                    <b> MOBILE</b>
-                    <Typing.Delay ms={600} /> and <b>GAME DEVELOPER</b>. <br />
-                    <Typing.Delay ms={600} />
-                    <Typing.Speed ms={30} />
-                    In this website,
-                    <Typing.Delay ms={200} /> you can see everything about my
-                    career,
-                    <br />
-                    <Typing.Delay ms={200} /> portfolio
-                    <Typing.Delay ms={200} /> and my work.
-                  </small>
-                  <br />
-                  <br />
-                  <Typing.Delay ms={1000} />
-                  <Typing.Speed ms={100} />
-                  I hope you enjoy.
-                  <Typing.Delay ms={1000} />
-                  <Typing.Speed ms={100} />
-                  <b> Giovanni Fernandes.</b>
-                </Typing>
-              </div>
-              <Button
-                className={classes.button}
-                ghost
-                size={"large"}
+            </ScrollAnimation>
+
+            <div className={classes.textTwo}>
+              <Typist avgTypingDelay={40}>
+                <small>
+                  <Typist.Delay ms={400} />
+                  <b> WEB FULL-STACK,</b>
+                  <Typist.Delay ms={400} />
+                  <b> MOBILE</b>
+                  <Typist.Delay ms={400} /> and <b>GAME DEVELOPER</b>. <br />
+                </small>
+              </Typist>
+
+              <ScrollAnimation
+                animateIn="fadeIn"
+                delay="3000"
+                animateOnce={true}
               >
-                <Icon type="play-circle" />
-                More about me
-              </Button>
+                <small>
+                  In this website, you can see everything about my career,
+                  portfolio and my work.
+                </small>
+              </ScrollAnimation>
+              <br />
+              <br />
+              <ScrollAnimation
+                animateIn="fadeIn"
+                delay="4000"
+                animateOnce={true}
+              >
+                <span style={{ float: "right" }}>I hope you enjoy.</span>
+              </ScrollAnimation>
             </div>
+            <ScrollAnimation animateIn="fadeIn" delay="2000" animateOnce={true}>
+              <Button className={classes.button} ghost size={"large"}>
+                <Link to="/#about-me" scroll={el => scroll(el)}>
+                  More about me
+                </Link>
+              </Button>
+            </ScrollAnimation>
           </div>
         </Parallax>
       </div>
