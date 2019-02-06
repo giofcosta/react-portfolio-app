@@ -60,8 +60,8 @@ class Presentation extends React.Component {
       <div id="presentation" className={classes.contentWrapper}>
         <Parallax
           bgImage={resources.presentation}
-          strength={1000}
-          bgImageStyle={{ opacity: 0.3 }}
+          strength={500}
+          bgImageStyle={{  }}
         >
           <div style={{ height: window.screen.height }}>
             <div className={classes.main}>

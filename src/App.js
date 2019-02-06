@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import "animate.css/animate.min.css";
 import Routes from "./routes";
 import Navbar from "./template/navbar";
 import { Layout, Affix } from "antd";
@@ -61,7 +62,7 @@ class App extends Component {
           <Content>
             <Routes />
           </Content>
-          <Footer style={{ textAlign: "center" }}>
+          <Footer>
             Copyright © 2019. All Rights Reserved.
           </Footer>
         </Layout>

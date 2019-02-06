@@ -7,7 +7,7 @@ const IconSVG = (props) => (
 );
 
 const images = {
-  presentation: require("./profile.jpeg"),
+  presentation: require("./profile2.jpg"),
   presentationOne: require("./work-office.jpg"),
   presentationTwo: require("./solo-developers.png"),
   tdc: require("./tdc.png"),

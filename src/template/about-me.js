@@ -15,7 +15,7 @@ class AboutMe extends React.Component {
       <div id="about-me" className={classes.containerWrapper}>
         <Parallax
           bgImage={images.tdc}
-          strength={100}
+          strength={500}
           bgImageStyle={{ opacity: 0.05 }}
         >
           <div className={classes.flexContainer}>
