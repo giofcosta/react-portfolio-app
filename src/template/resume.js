@@ -1,36 +1,39 @@
 import React from "react";
 import injectSheet from "react-jss";
 import { Icon, Timeline, Collapse } from "antd";
-import { ParallaxLayer } from "react-spring/addons";
 
-const styles = {
-  title: {
-    // outline: "1px solid green",
-    width: "100%",
-    marginRight: "50px",
-    marginBottom: "30px",
-    borderBottom: "1px solid #eeeeee"
-  },
-  flexContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-    // outline: "1px solid red",
-    // height: '100%',
-    padding: "50px 0",
-    paddingLeft: "100px"
-  },
-  flexBlock: {
-    flex: "1 0 0",
-    maxWidth: "50%",
-    // outline: "1px solid blue",
-    marginRight: "50px",
-    marginBottom: "30px"
-  },
-  content: {
-    width: "100%",
-    marginRight: "50px"
-  }
-};
+const styles = theme => ({
+  ...theme
+});
+
+// const styles = {
+//   title: {
+//     // outline: "1px solid green",
+//     width: "100%",
+//     marginRight: "50px",
+//     marginBottom: "30px",
+//     borderBottom: "1px solid #eeeeee"
+//   },
+//   flexContainer: {
+//     display: "flex",
+//     flexWrap: "wrap",
+//     padding: "50px 100px",
+//     minHeight: window.screen.height,
+//     alignContent: 'baseline'
+
+//   },
+//   flexBlock: {
+//     flex: "1 0 0",
+//     maxWidth: "50%",
+//     // outline: "1px solid blue",
+//     marginRight: "50px",
+//     marginBottom: "30px"
+//   },
+//   content: {
+//     width: "100%",
+//     marginRight: "50px"
+//   }
+// };
 
 const experiences = [
   {
@@ -316,7 +319,8 @@ const readings = [
     date: ""
   },
   {
-    title: "System Architecture for Web With Java Using Design Patterns and Frameworks",
+    title:
+      "System Architecture for Web With Java Using Design Patterns and Frameworks",
     rule: "Evandro Carlos Teruel",
     description: "",
     date: ""
@@ -338,46 +342,42 @@ const readings = [
     rule: "Sun Tsu",
     description: "",
     date: ""
-  },
+  }
 ];
 
 const TimeLineBuilder = props => {
   const { classes } = props;
   return (
-    <div className={classes.flexContainer}>
-      <div className={classes.flexBlock}>
-        <Timeline mode="right" style={{ marginRight: 100 }}>
-          {props.items.map((item, key) => (
-            <Timeline.Item
-              key={key}
-              dot={
-                <Icon
-                  type={props.iconType}
-                  theme="filled"
-                  style={{ fontSize: "16px" }}
-                />
-              }
-            >
-              <h3>{item.title}</h3>
-              {item.date}
-              <div
-                style={{
-                  width: "100%",
-                  float: "right",
-                  marginRight: "calc(-100% - 30px)",
-                  marginTop: -30,
-                  textAlign: "justify"
-                }}
-              >
-                <h4>{item.rule}</h4>
-                {item.description}
-              </div>
-              <div style={{ clear: "both" }} />
-            </Timeline.Item>
-          ))}
-        </Timeline>
-      </div>
-    </div>
+    <Timeline mode="right" style={{ marginRight: '55%' }}>
+      {props.items.map((item, key) => (
+        <Timeline.Item
+          key={key}
+          dot={
+            <Icon
+              type={props.iconType}
+              theme="filled"
+              style={{ fontSize: "16px" }}
+            />
+          }
+        >
+          <h3>{item.title}</h3>
+          {item.date}
+          <div
+            style={{
+              width: "100%",
+              float: "right",
+              marginRight: "calc(-100% - 30px)",
+              marginTop: -30,
+              textAlign: "justify"
+            }}
+          >
+            <h4>{item.rule}</h4>
+            {item.description}
+          </div>
+          <div style={{ clear: "both" }} />
+        </Timeline.Item>
+      ))}
+    </Timeline>
   );
 };
 
@@ -385,7 +385,7 @@ class Resume extends React.Component {
   state = { loading: true };
 
   render() {
-    const { classes, offset, parallax } = this.props;
+    const { classes } = this.props;
 
     let ctx = this;
     setTimeout(() => {
@@ -393,74 +393,67 @@ class Resume extends React.Component {
     }, 3000);
 
     return (
-      <React.Fragment>
-        <ParallaxLayer
-          offset={offset}
-          speed={0}
-          factor={2}
-          style={{
-            backgroundColor: "#ffffff"
-          }}
-        />
-
-        <ParallaxLayer offset={offset} speed={0.5} factor={2}>
-          <div className={classes.flexContainer}>
-            <div className={classes.title}>
-              <h2 onClick={() => parallax(4)}>RESUME</h2>
-            </div>
-
-            <Collapse bordered={false} style={{ width: "100%" }} defaultActiveKey={['2']}>
-              <Collapse.Panel
-                header={<h3>Experience</h3>}
-                key={1}
-                style={{ border: "none" }}
-              >
-                <TimeLineBuilder
-                  {...this.props}
-                  items={experiences}
-                  iconType="calendar"
-                />
-              </Collapse.Panel>
-
-              <Collapse.Panel
-                header={<h3>Education</h3>}
-                key={2}
-                style={{ border: "none" }}
-              >
-                <TimeLineBuilder
-                  {...this.props}
-                  items={education}
-                  iconType="bank"
-                />
-              </Collapse.Panel>
-
-              <Collapse.Panel
-                header={<h3>Certifications</h3>}
-                key={3}
-                style={{ border: "none" }}
-              >
-                <TimeLineBuilder
-                  {...this.props}
-                  items={certifications}
-                  iconType="safety-certificate"
-                />
-              </Collapse.Panel>
-
-              <Collapse.Panel
-                header={<h3>Readings</h3>}
-                key={4}
-                style={{ border: "none" }}
-              >
-                <TimeLineBuilder
-                  {...this.props}
-                  items={readings}
-                  iconType="read"
-                />
-              </Collapse.Panel>
-            </Collapse>
+      <div id="resume" className={classes.containerWrapper}>
+        <div className={classes.flexContainer}>
+          <div className={classes.title}>
+            <h2>RESUME</h2>
           </div>
-        </ParallaxLayer>
-      </React.Fragment>
+
+          <Collapse
+            bordered={false}
+            style={{ width: "100%" }}
+            defaultActiveKey={["2"]}
+          >
+            <Collapse.Panel
+              header={<h3>Experience</h3>}
+              key={1}
+              style={{ border: "none" }}
+            >
+              <TimeLineBuilder
+                {...this.props}
+                items={experiences}
+                iconType="calendar"
+              />
+            </Collapse.Panel>
+
+            <Collapse.Panel
+              header={<h3>Education</h3>}
+              key={2}
+              style={{ border: "none" }}
+            >
+              <TimeLineBuilder
+                {...this.props}
+                items={education}
+                iconType="bank"
+              />
+            </Collapse.Panel>
+
+            <Collapse.Panel
+              header={<h3>Certifications</h3>}
+              key={3}
+              style={{ border: "none" }}
+            >
+              <TimeLineBuilder
+                {...this.props}
+                items={certifications}
+                iconType="safety-certificate"
+              />
+            </Collapse.Panel>
+
+            <Collapse.Panel
+              header={<h3>Readings</h3>}
+              key={4}
+              style={{ border: "none" }}
+            >
+              <TimeLineBuilder
+                {...this.props}
+                items={readings}
+                iconType="read"
+              />
+            </Collapse.Panel>
+          </Collapse>
+        </div>
+      </div>
     );
   }
 }

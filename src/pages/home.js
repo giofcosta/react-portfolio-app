@@ -1,20 +1,24 @@
 import React from "react";
 import injectSheet from "react-jss";
-import { Parallax } from "react-spring/addons";
 import { Presentation, AboutMe, Skill, Resume, Contact } from "../template";
 
-const styles = {};
+const styles = theme => ({
+  ...theme
+});
 
 class Home extends React.Component {
   render() {
+    const { classes } = this.props;
     return (
-      <Parallax ref={ref => (this.parallax = ref)} pages={5} scrolling={true}>
+      <React.Fragment>
         <Presentation
+          className={classes.flexBlock}
           parallax={idx => {
             this.parallax.scrollTo(idx);
           }}
           offset={0}
         />
+
         <AboutMe
           parallax={idx => {
             this.parallax.scrollTo(idx);
@@ -42,31 +46,7 @@ class Home extends React.Component {
           }}
           offset={4}
         />
-
-        {/* <ParallaxLayer
-          offset={2}
-          speed={.2}
-          // onClick={() => this.parallax.scrollTo(3)}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        /> */}
-
-        {/* <ParallaxLayer
-          offset={3}
-          speed={1}
-          factor={1}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "#ffffff" 
-          }}
-          // onClick={() => this.parallax.scrollTo(0)}
-        /> */}
-      </Parallax>
+      </React.Fragment>
     );
   }
 }
