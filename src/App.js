@@ -23,7 +23,8 @@ const theme = {
     borderTop: "solid 1px #e8e8e8",
     overflow: "auto",
     boxShadow: "0 0 30px #f3f1f1",
-    position: "relative"
+    position: "relative",
+    paddingTop: 50
   },
   flexContainer: {
     margin: "0 auto",
@@ -32,16 +33,16 @@ const theme = {
     flexWrap: "wrap",
     // outline: "1px solid red",
     // height: '100%',
-    padding: "50px 0",
-    paddingLeft: "100px",
+    // padding: "50px 0",
+    // paddingLeft: "100px",
     minHeight: window.screen.availHeight,
     alignContent: "baseline"
   },
   flexBlock: {
     flex: "1 0 0",
     maxWidth: "50%",
-    marginRight: "50px",
-    marginBottom: "30px"
+    // marginRight: "50px",
+    // marginBottom: "30px"
   },
   content: {
     width: "100%",
