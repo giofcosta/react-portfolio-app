@@ -214,3 +214,25 @@ body {
     padding: 10px 20px;
   }
 }
+
+.ant-anchor-link-title a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-decoration: none;
+}
+
+.ant-anchor-link-title-active a {
+  color: #1890ff;
+  text-decoration: none;
+}
+
+.ant-timeline-item-head {
+  background-color: none;
+}
+
+.ant-timeline-item-content {
+  margin: 0;
+  position: relative;
+  top: -6px;
+}

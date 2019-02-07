@@ -3,6 +3,7 @@ import injectSheet from "react-jss";
 import { Rate, List, Icon, Tag } from "antd";
 import { Parallax } from "react-parallax";
 import images from "../resources/images";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const styles = theme => ({
   ...theme
@@ -182,40 +183,41 @@ const tags = [
   "Personal",
   "Easy to work with",
   "Easy learning",
-  "contributing member",
-  "transparent",
-  "proactive",
-  "easy adaptation",
-  " excellent interpersonal skills"
+  "Contributing member",
+  "Transparent",
+  "Proactive",
+  "Easy adaptation",
+  "Excellent interpersonal skills"
 ];
 
 let starsLoaded = false;
 
 class Skill extends React.Component {
-  state = {
-    data: data.map(v => {
-      let newV = { ...v };
-      newV.stars = 0;
-      return newV;
-    })
-  };
+  // state = {
+  //   data: data.map(v => {
+  //     let newV = { ...v };
+  //     newV.stars = 0;
+  //     return newV;
+  //   })
+  // };
 
   render() {
     const { classes } = this.props;
-    console.clear()
-    if(!starsLoaded){
-      for (let i = 0; i < data.length; i++) {
-        const el = data[i];
-        for (let j = 0; j < el.stars; j++) {
-          setTimeout(() => {
-             let newData = this.state.data;
-             newData[i].stars = j;
-             this.setState({data: newData})
-          }, j * 100);
-        }
-        starsLoaded = true;
-      }
-    }
+
+    //TODO: Starts Animation
+    // if (!starsLoaded) {
+    //   starsLoaded = true;
+    //   for (let i = 0; i < data.length; i++) {
+    //     const el = data[i];
+    //     for (let j = 0; j < el.stars; j++) {
+    //       setTimeout(() => {
+    //         let newData = this.state.data;
+    //         newData[i].stars = j;
+    //         this.setState({ data: newData });
+    //       }, j * 100);
+    //     }
+    //   }
+    // }
 
     return (
       <div id="skills" className={classes.containerWrapper}>
@@ -229,31 +231,38 @@ class Skill extends React.Component {
           <div className={classes.flexBlock1}>
             <List
               itemLayout="horizontal"
-              dataSource={this.state.data}
+              dataSource={data}
               renderItem={item => (
-                <List.Item>
-                  <List.Item.Meta
-                    avatar={
-                      <Icon
-                        type="check"
-                        style={{ fontSize: 20, color: "green" }}
-                      />
-                    }
-                    title={
-                      <React.Fragment>
-                        <span>{item.title}</span>
-                        <Rate
-                          count={10}
-                          allowHalf
-                          disabled
-                          defaultValue={item.stars}
-                          style={{ float: "right" }}
+                <ScrollAnimation
+                  animateIn="bounceInLeft"
+                  delay={300}
+                  offset={1000}
+                  animateOnce={true}
+                >
+                  <List.Item>
+                    <List.Item.Meta
+                      avatar={
+                        <Icon
+                          type="check"
+                          style={{ fontSize: 20, color: "green" }}
                         />
-                      </React.Fragment>
-                    }
-                    description={item.description}
-                  />
-                </List.Item>
+                      }
+                      title={
+                        <React.Fragment>
+                          <span>{item.title}</span>
+                          <Rate
+                            count={10}
+                            allowHalf
+                            disabled
+                            defaultValue={item.stars}
+                            style={{ float: "right" }}
+                          />
+                        </React.Fragment>
+                      }
+                      description={item.description}
+                    />
+                  </List.Item>
+                </ScrollAnimation>
               )}
             />
           </div>
@@ -262,26 +271,51 @@ class Skill extends React.Component {
               itemLayout="horizontal"
               dataSource={languages}
               renderItem={item => (
-                <List.Item>
-                  <List.Item.Meta
-                    avatar={
-                      <Icon
-                        type="check"
-                        style={{ fontSize: 20, color: "green" }}
-                      />
-                    }
-                    title={
-                      <div>
-                        <span>{item.title}</span>
-                        <span style={{ float: "right", color: "green" }}>
-                          {item.description}
-                        </span>
-                      </div>
-                    }
-                  />
-                </List.Item>
+                <ScrollAnimation
+                  animateIn="bounceInRight"
+                  delay={300}
+                  offset={1000}
+                  animateOnce={true}
+                >
+                  <List.Item>
+                    <List.Item.Meta
+                      avatar={
+                        <Icon
+                          type="check"
+                          style={{ fontSize: 20, color: "green" }}
+                        />
+                      }
+                      title={
+                        <div>
+                          <span>{item.title}</span>
+                          <span style={{ float: "right", color: "green" }}>
+                            {item.description}
+                          </span>
+                        </div>
+                      }
+                    />
+                  </List.Item>
+                </ScrollAnimation>
               )}
             />
+
+            <ScrollAnimation
+              animateIn="jackInTheBox"
+              delay={600}
+              offset={1000}
+              animateOnce={true}
+            >
+              <img
+                src="https://www.pngarts.com/files/3/Technology-PNG-Transparent-Image.png"
+                alt="technology"
+                style={{
+                  objectFit: "contain",
+                  marginTop: -30,
+                  width: "100%",
+                  opacity: 0.8
+                }}
+              />
+            </ScrollAnimation>
           </div>
         </div>
         <br />
@@ -301,9 +335,17 @@ class Skill extends React.Component {
             }}
           >
             {tags.map((item, key) => (
+              <ScrollAnimation
+              animateIn="zoomIn"
+              delay={600}
+              offset={1000}
+              animateOnce={true}
+              // initiallyVisible={true}
+            >
               <Tag color="#2db7f5" key={key} style={{ margin: 5 }}>
                 {item}
               </Tag>
+              </ScrollAnimation>
             ))}
           </div>
           <p style={{ float: "right" }} />

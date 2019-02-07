@@ -1,6 +1,6 @@
 import React from "react";
 import injectSheet from "react-jss";
-import { Icon, Card } from "antd";
+import { Icon, Card, List } from "antd";
 import { Parallax } from "react-parallax";
 import images from "../resources/images";
 import ScrollAnimation from "react-animate-on-scroll";
@@ -35,43 +35,37 @@ class AboutMe extends React.Component {
         
         <div class={classes.flexContainer} style={{ minHeight: "auto" }}>
           <div className={classes.flexBlock1}>
-            <ScrollAnimation
-              animateIn="jackInTheBox"
-              delay={300}
-              offset={1000}
-              animateOnce={true}
-            >
-              <Card bordered={false} style={{ width: "100%" }}>
-                {items.map((item, key) => (
-                  <ScrollAnimation
-                    animateIn="fadeInLeft"
-                    delay={(key + 2) * 300}
-                    offset={1000}
-                    animateOnce={true}
-                  >
-                    <div>
-                      <Icon
-                        type="check"
-                        style={{
-                          fontSize: "18px",
-                          color: "green",
-                          float: "left"
-                        }}
-                      />{" "}
-                      <div
-                        style={{
-                          fontSize: 17,
-                          paddingLeft: 30
-                        }}
-                      >
-                        {item}
-                      </div>
-                      <br />
-                    </div>
-                  </ScrollAnimation>
-                ))}
-              </Card>
-            </ScrollAnimation>
+          <Card bordered={false} style={{ width: "100%" }}>
+          <List
+              itemLayout="horizontal"
+              dataSource={items}
+              renderItem={item => (
+                <ScrollAnimation
+                  animateIn="bounceInLeft"
+                  delay={300}
+                  offset={1000}
+                  animateOnce={true}
+                >
+                  <List.Item>
+                    <List.Item.Meta
+                      avatar={
+                        <Icon
+                          type="check"
+                          style={{ fontSize: 20, color: "green" }}
+                        />
+                      }
+                      title={
+                        <React.Fragment>
+                          <span>{item}</span>
+                        </React.Fragment>
+                      }
+                      description={item.description}
+                    />
+                  </List.Item>
+                </ScrollAnimation>
+              )}
+            />
+            </Card>
           </div>
           <div className={classes.flexBlock2}>
             <ScrollAnimation

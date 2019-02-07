@@ -13,7 +13,7 @@ class Social extends React.Component {
           href="https://www.facebook.com/giovanni.fernandes.503"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ marginRight: 30 }}
+          style={{ color: "#444444", marginRight: 30 }}
         >
           <Icon type="facebook" theme="filled" />
         </a>
