@@ -12,13 +12,16 @@ class Contact extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div id="contact" className={classes.containerWrapper} >
+      <div id="contact" className={classes.containerWrapper}>
         <Parallax
           bgImage={images.contactUs}
           strength={300}
           bgImageStyle={{ opacity: 0.03, backgroundColor: "#ffffff" }}
         >
-          <div className={classes.flexContainer} style={{minHeight: window.screen.availHeight - 200}}>
+          <div
+            className={classes.flexContainer}
+            style={{ minHeight: window.screen.availHeight - 200 }}
+          >
             <div className={classes.title}>
               <h2>CONTACT</h2>
             </div>
@@ -40,6 +43,7 @@ class Contact extends React.Component {
                     <a
                       href="https://www.google.com/maps/place/Florianópolis"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       Florianópolis, SC - Brazil
                     </a>
@@ -60,7 +64,11 @@ class Contact extends React.Component {
                   }
                   title="Phone Number"
                   description={
-                    <a href="tel:+5548991216434" target="_blank">
+                    <a
+                      href="tel:+5548991216434"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       +55 (48) 991216434
                     </a>
                   }
@@ -76,7 +84,11 @@ class Contact extends React.Component {
                   }
                   title="Mail"
                   description={
-                    <a href="mailto:giofcosta@gmail.com" target="_blank">
+                    <a
+                      href="mailto:giofcosta@gmail.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       giofcosta@gmail.com
                     </a>
                   }
@@ -84,7 +96,7 @@ class Contact extends React.Component {
               </Card>
             </div>
             <div className={classes.flexBlock}>
-              <div style={{ marginTop: 30 }}>
+              {/* <div style={{ marginTop: 30 }}>
                 <a
                   href="https://www.facebook.com/giovanni.fernandes.503"
                   target="_blank"
@@ -153,7 +165,7 @@ class Contact extends React.Component {
                 >
                   <Icon type="medium" style={{ fontSize: 80 }} />
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </Parallax>

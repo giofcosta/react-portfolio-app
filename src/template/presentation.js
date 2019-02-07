@@ -1,7 +1,7 @@
 import React from "react";
 import resources from "../resources/images";
 import Typist from "react-typist";
-import { Button, Icon } from "antd";
+import { Button } from "antd";
 import injectSheet from "react-jss";
 import ScrollAnimation from "react-animate-on-scroll";
 import { Parallax } from "react-parallax";
@@ -64,7 +64,7 @@ class Presentation extends React.Component {
             left: "960px"
           }}
         >
-          <div className={classes.flexContainer} >
+          <div className={classes.flexContainer}>
             <ScrollAnimation animateIn="fadeIn" delay="1000" animateOnce={true}>
               <p className={classes.textOne}>
                 <span style={{ fontSize: 63 }}>WELCOME</span>

@@ -5,7 +5,6 @@ import Routes from "./routes";
 import Navbar from "./template/navbar";
 import { Layout, Affix, BackTop, Icon } from "antd";
 import { ThemeProvider } from "react-jss";
-import ScrollAnimation from "react-animate-on-scroll";
 
 const { Header, Content, Footer } = Layout;
 
@@ -38,10 +37,17 @@ const theme = {
     minHeight: window.screen.availHeight,
     alignContent: "baseline"
   },
-  flexBlock: {
+  flexBlock1: {
     flex: "1 0 0",
     maxWidth: "50%",
+    marginRight: "25px",
     // marginRight: "50px",
+    // marginBottom: "30px"
+  },
+  flexBlock2: {
+    flex: "1 0 0",
+    maxWidth: "50%",
+    marginLeft: "25px",
     // marginBottom: "30px"
   },
   content: {

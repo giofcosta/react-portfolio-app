@@ -346,7 +346,6 @@ const readings = [
 ];
 
 const TimeLineBuilder = props => {
-  const { classes } = props;
   return (
     <Timeline mode="right" style={{ marginRight: '55%' }}>
       {props.items.map((item, key) => (

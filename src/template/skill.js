@@ -44,11 +44,11 @@ const data = [
   {
     title: "Design",
     stars: 6
-  },
-  {
-    title: "Management",
-    stars: 7
   }
+  // {
+  //   title: "Management",
+  //   stars: 7
+  // }
 ];
 
 const languages = [
@@ -189,100 +189,124 @@ const tags = [
   " excellent interpersonal skills"
 ];
 
+let starsLoaded = false;
+
 class Skill extends React.Component {
+  state = {
+    data: data.map(v => {
+      let newV = { ...v };
+      newV.stars = 0;
+      return newV;
+    })
+  };
+
   render() {
     const { classes } = this.props;
+    console.clear()
+    if(!starsLoaded){
+      for (let i = 0; i < data.length; i++) {
+        const el = data[i];
+        for (let j = 0; j < el.stars; j++) {
+          setTimeout(() => {
+             let newData = this.state.data;
+             newData[i].stars = j;
+             this.setState({data: newData})
+          }, j * 100);
+        }
+        starsLoaded = true;
+      }
+    }
 
     return (
       <div id="skills" className={classes.containerWrapper}>
-        <Parallax bgImage={images.presentationOne} strength={1000} bgImageStyle={{opacity:0.03}}>
-          <div className={classes.flexContainer} >
-            <div className={classes.title}>
-              {" "}
-              <h2>MY SKILLS</h2>
-            </div>
-            <div className={classes.flexBlock}>
-              <h3>Development</h3>
-              <br />
-              <List
-                itemLayout="horizontal"
-                dataSource={data}
-                renderItem={item => (
-                  <List.Item>
-                    <List.Item.Meta
-                      avatar={
-                        <Icon
-                          type="check"
-                          style={{ fontSize: 20, color: "green" }}
-                        />
-                      }
-                      title={
-                        <React.Fragment>
-                          <span>{item.title}</span>
-                          <Rate
-                            count={10}
-                            allowHalf
-                            disabled
-                            defaultValue={item.stars}
-                            style={{ float: "right" }}
-                          />
-                        </React.Fragment>
-                      }
-                      description={item.description}
-                    />
-                  </List.Item>
-                )}
-              />
-
-              <br />
-              <h3>Languages</h3>
-              <br />
-              <List
-                itemLayout="horizontal"
-                dataSource={languages}
-                renderItem={item => (
-                  <List.Item>
-                    <List.Item.Meta
-                      avatar={
-                        <Icon
-                          type="check"
-                          style={{ fontSize: 20, color: "green" }}
-                        />
-                      }
-                      title={
-                        <div>
-                          <span>{item.title}</span>
-                          <span style={{ float: "right", color: "green" }}>
-                            {item.description}
-                          </span>
-                        </div>
-                      }
-                    />
-                  </List.Item>
-                )}
-              />
-            </div>
-            <div className={classes.flexBlock}>
-              <h3>Tags</h3>
-              <br />
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
-              >
-                {tags.map((item, key) => (
-                  <Tag color="#2db7f5" key={key} style={{ margin: 5 }}>
-                    {item}
-                  </Tag>
-                ))}
-              </div>
-              <p style={{ float: "right" }}>
-              </p>
-            </div>
+        <div className={classes.flexContainer} style={{ minHeight: "auto" }}>
+          <div className={classes.title}>
+            {" "}
+            <h2>MY SKILLS</h2>
           </div>
+          <br />
+          <br />
+          <div className={classes.flexBlock1}>
+            <List
+              itemLayout="horizontal"
+              dataSource={this.state.data}
+              renderItem={item => (
+                <List.Item>
+                  <List.Item.Meta
+                    avatar={
+                      <Icon
+                        type="check"
+                        style={{ fontSize: 20, color: "green" }}
+                      />
+                    }
+                    title={
+                      <React.Fragment>
+                        <span>{item.title}</span>
+                        <Rate
+                          count={10}
+                          allowHalf
+                          disabled
+                          defaultValue={item.stars}
+                          style={{ float: "right" }}
+                        />
+                      </React.Fragment>
+                    }
+                    description={item.description}
+                  />
+                </List.Item>
+              )}
+            />
+          </div>
+          <div className={classes.flexBlock2}>
+            <List
+              itemLayout="horizontal"
+              dataSource={languages}
+              renderItem={item => (
+                <List.Item>
+                  <List.Item.Meta
+                    avatar={
+                      <Icon
+                        type="check"
+                        style={{ fontSize: 20, color: "green" }}
+                      />
+                    }
+                    title={
+                      <div>
+                        <span>{item.title}</span>
+                        <span style={{ float: "right", color: "green" }}>
+                          {item.description}
+                        </span>
+                      </div>
+                    }
+                  />
+                </List.Item>
+              )}
+            />
+          </div>
+        </div>
+        <br />
+        <br />
+        <Parallax
+          bgImage={images.presentationOne}
+          strength={1000}
+          bgImageStyle={{ opacity: 0.3 }}
+        >
+          <br />
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+          >
+            {tags.map((item, key) => (
+              <Tag color="#2db7f5" key={key} style={{ margin: 5 }}>
+                {item}
+              </Tag>
+            ))}
+          </div>
+          <p style={{ float: "right" }} />
         </Parallax>
       </div>
     );

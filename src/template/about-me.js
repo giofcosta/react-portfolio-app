@@ -1,9 +1,10 @@
 import React from "react";
 import injectSheet from "react-jss";
-import { Icon, Timeline } from "antd";
+import { Icon, Card } from "antd";
 import { Parallax } from "react-parallax";
 import images from "../resources/images";
 import ScrollAnimation from "react-animate-on-scroll";
+import { Social } from "../template";
 
 const styles = theme => ({
   ...theme
@@ -24,76 +25,55 @@ class AboutMe extends React.Component {
       <div
         id="about-me"
         className={classes.containerWrapper}
-        // style={{ background: "#f4f4f4" }}
+        style={{ background: "#f4f4f4" }}
       >
-        {/* <Parallax
-          bgImage={images.tdc}
-          strength={500}
-          bgImageStyle={{ opacity: 0.05 }}
-        > */}
-        <div className={classes.flexContainer} style={{position: 'relative'}}>
+      <div className={classes.flexContainer} style={{ minHeight: "auto" }}>
           <div className={classes.title}>
             <h2>ABOUT ME</h2>
           </div>
-          <ScrollAnimation
-            animateIn="fadeIn"
-            delay={300}
-            offset={1000}
-            animateOnce={true}
-          >
-            <div
-              style={{
-                position: "absolute",
-                top: 130,
-                left: 0,
-                width: 1170,
-                height: "30%"
-              }}
+        </div>
+        
+        <div class={classes.flexContainer} style={{ minHeight: "auto" }}>
+          <div className={classes.flexBlock1}>
+            <ScrollAnimation
+              animateIn="jackInTheBox"
+              delay={300}
+              offset={1000}
+              animateOnce={true}
             >
-              <Parallax
-                bgImage={images.presentationTwo}
-                strength={300}
-                style={{ width: "100%", height: "100%" }}
-              />
-            </div>
-          </ScrollAnimation>
-
-          <div className={classes.flexBlock} style={{ paddingTop: 370 }}>
-            <h3>An experient developer</h3>
-            <br />
-            <br />
-            {items.map((item, key) => (
-              <ScrollAnimation
-                animateIn="fadeInLeft"
-                delay={key * 300}
-                offset={1000}
-                animateOnce={true}
-              >
-                <Timeline>
-                  <Timeline.Item
-                    key={key}
-                    dot={
+              <Card bordered={false} style={{ width: "100%" }}>
+                {items.map((item, key) => (
+                  <ScrollAnimation
+                    animateIn="fadeInLeft"
+                    delay={(key + 2) * 300}
+                    offset={1000}
+                    animateOnce={true}
+                  >
+                    <div>
                       <Icon
                         type="check"
-                        style={{ fontSize: "24px", color: "green" }}
-                      />
-                    }
-                  >
-                    <div
-                      style={{
-                        fontSize: 20,
-                        padding: "0 18px",
-                        marginTop: -10
-                      }}
-                    >
-                      {item}
+                        style={{
+                          fontSize: "18px",
+                          color: "green",
+                          float: "left"
+                        }}
+                      />{" "}
+                      <div
+                        style={{
+                          fontSize: 17,
+                          paddingLeft: 30
+                        }}
+                      >
+                        {item}
+                      </div>
+                      <br />
                     </div>
-                  </Timeline.Item>
-                </Timeline>
-              </ScrollAnimation>
-            ))}
+                  </ScrollAnimation>
+                ))}
+              </Card>
+            </ScrollAnimation>
           </div>
-          <div className={classes.flexBlock} style={{ paddingTop: 370 }}>
+          <div className={classes.flexBlock2}>
             <ScrollAnimation
               animateIn="jackInTheBox"
               delay={300}
@@ -114,7 +94,26 @@ class AboutMe extends React.Component {
             <small>The Developers Conference 2017 - Florianópolis</small>
           </div>
         </div>
-        {/* </Parallax> */}
+        <Social
+          style={{
+            margin: "30px 0",
+            width: "100%",
+            textAlign: "center",
+            fontSize: 40
+          }}
+        />
+        <div
+          style={{
+            width: "100%",
+            height: "280px"
+          }}
+        >
+          <Parallax
+            bgImage={images.presentationTwo}
+            strength={300}
+            style={{ width: "100%", height: "100%", opacity: 0.95 }}
+          />
+        </div>
       </div>
     );
   }
