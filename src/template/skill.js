@@ -306,7 +306,7 @@ class Skill extends React.Component {
               animateOnce={true}
             >
               <img
-                src="https://www.pngarts.com/files/3/Technology-PNG-Transparent-Image.png"
+                src={images.technology}
                 alt="technology"
                 style={{
                   objectFit: "contain",
@@ -331,7 +331,9 @@ class Skill extends React.Component {
               display: "flex",
               flexWrap: "wrap",
               alignItems: "center",
-              justifyContent: "center"
+              justifyContent: "center",
+              width: "100%", 
+              height: "240px"
             }}
           >
             {tags.map((item, key) => (
@@ -340,7 +342,6 @@ class Skill extends React.Component {
               delay={600}
               offset={1000}
               animateOnce={true}
-              // initiallyVisible={true}
             >
               <Tag color="#2db7f5" key={key} style={{ margin: 5 }}>
                 {item}

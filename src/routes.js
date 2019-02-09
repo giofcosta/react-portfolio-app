@@ -1,12 +1,12 @@
 import React from 'react'
-import {HashRouter, Route, Redirect, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 import Home from "./pages/home";
 
 export default () => (
-    <HashRouter>
+    <Router history>
         <Switch>
             <Route exact path="/" component={Home} />
             <Redirect to="/" />
         </Switch>
-    </HashRouter>
+    </Router>
 );

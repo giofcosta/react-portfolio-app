@@ -5,6 +5,7 @@ import Routes from "./routes";
 import Navbar from "./template/navbar";
 import { Layout, Affix, BackTop, Icon } from "antd";
 import { ThemeProvider } from "react-jss";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const { Header, Content, Footer } = Layout;
 
@@ -20,10 +21,10 @@ const theme = {
   containerWrapper: {
     backgroundColor: "#ffffff",
     borderTop: "solid 1px #e8e8e8",
-    overflow: "auto",
     boxShadow: "0 0 30px #f3f1f1",
     position: "relative",
-    paddingTop: 50
+    paddingTop: 50,
+    overflow: "hidden"
   },
   flexContainer: {
     margin: "0 auto",
@@ -40,14 +41,14 @@ const theme = {
   flexBlock1: {
     flex: "1 0 0",
     maxWidth: "50%",
-    marginRight: "25px",
+    marginRight: "25px"
     // marginRight: "50px",
     // marginBottom: "30px"
   },
   flexBlock2: {
     flex: "1 0 0",
     maxWidth: "50%",
-    marginLeft: "25px",
+    marginLeft: "25px"
     // marginBottom: "30px"
   },
   content: {
@@ -60,25 +61,31 @@ class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <Layout className="layout">
-          <Affix offsetTop={0}>
-            <Header
-              id="header"
-              style={{ position: "fixed", zIndex: 1, width: "100%" }}
-            >
-              <Navbar />
-            </Header>
-          </Affix>
-          <Content>
-            <Routes />
-          </Content>
-          <Footer>Copyright © 2019. All Rights Reserved.</Footer>
-          <BackTop>
-            <div className="ant-back-top-inner">
-              <Icon type="up" />
-            </div>
-          </BackTop>
-        </Layout>
+        <ScrollAnimation
+          animateIn="fadeIn"
+          delay={200}
+          animateOnce={true}
+        >
+          <Layout className="layout">
+            <Affix offsetTop={0}>
+              <Header
+                id="header"
+                style={{ position: "fixed", zIndex: 1, width: "100%" }}
+              >
+                <Navbar />
+              </Header>
+            </Affix>
+            <Content>
+              <Routes />
+            </Content>
+            <Footer>Copyright © 2019. All Rights Reserved.</Footer>
+            <BackTop>
+              <div className="ant-back-top-inner">
+                <Icon type="up" />
+              </div>
+            </BackTop>
+          </Layout>
+        </ScrollAnimation>
       </ThemeProvider>
     );
   }

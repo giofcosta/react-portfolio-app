@@ -27,44 +27,44 @@ class AboutMe extends React.Component {
         className={classes.containerWrapper}
         style={{ background: "#f4f4f4" }}
       >
-      <div className={classes.flexContainer} style={{ minHeight: "auto" }}>
+        <div className={classes.flexContainer} style={{ minHeight: "auto" }}>
           <div className={classes.title}>
             <h2>ABOUT ME</h2>
           </div>
         </div>
-        
+
         <div class={classes.flexContainer} style={{ minHeight: "auto" }}>
           <div className={classes.flexBlock1}>
-          <Card bordered={false} style={{ width: "100%" }}>
-          <List
-              itemLayout="horizontal"
-              dataSource={items}
-              renderItem={item => (
-                <ScrollAnimation
-                  animateIn="bounceInLeft"
-                  delay={300}
-                  offset={1000}
-                  animateOnce={true}
-                >
-                  <List.Item>
-                    <List.Item.Meta
-                      avatar={
-                        <Icon
-                          type="check"
-                          style={{ fontSize: 20, color: "green" }}
-                        />
-                      }
-                      title={
-                        <React.Fragment>
-                          <span>{item}</span>
-                        </React.Fragment>
-                      }
-                      description={item.description}
-                    />
-                  </List.Item>
-                </ScrollAnimation>
-              )}
-            />
+            <Card bordered={false} style={{ width: "100%" }}>
+              <List
+                itemLayout="horizontal"
+                dataSource={items}
+                renderItem={item => (
+                  <ScrollAnimation
+                    animateIn="bounceInLeft"
+                    delay={300}
+                    offset={1000}
+                    animateOnce={true}
+                  >
+                    <List.Item>
+                      <List.Item.Meta
+                        avatar={
+                          <Icon
+                            type="check"
+                            style={{ fontSize: 20, color: "green" }}
+                          />
+                        }
+                        title={
+                          <React.Fragment>
+                            <span>{item}</span>
+                          </React.Fragment>
+                        }
+                        description={item.description}
+                      />
+                    </List.Item>
+                  </ScrollAnimation>
+                )}
+              />
             </Card>
           </div>
           <div className={classes.flexBlock2}>
@@ -99,14 +99,38 @@ class AboutMe extends React.Component {
         <div
           style={{
             width: "100%",
-            height: "280px"
+            
           }}
         >
           <Parallax
-            bgImage={images.presentationTwo}
-            strength={300}
-            style={{ width: "100%", height: "100%", opacity: 0.95 }}
-          />
+            bgImage={images.certifiedBackground}
+            strength={520}
+            style={{
+              width: "100%",
+              opacity: 0.7,
+              textAlign: "center"
+            }}
+          >
+            <div >
+              <ScrollAnimation
+                animateIn="bounceIn"
+                duration="1"
+                delay="600"
+                style={{ width: "100%", height: "320px" }}
+              >
+                <img
+                  alt="Microsoft Certified"
+                  src={images.certified}
+                  style={{
+                    objectFit: "contain",
+                    width: "80%",
+                    height: "80%",
+                    marginTop: 30
+                  }}
+                />
+              </ScrollAnimation>
+            </div>
+          </Parallax>
         </div>
       </div>
     );

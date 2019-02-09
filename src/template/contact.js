@@ -27,10 +27,11 @@ class Contact extends React.Component {
             delay={500}
             offset={1000}
             animateOnce={true}
+            initiallyVisible={true}
             style={{ textAlign: "center" }}
           >
             <br />
-            <br />
+            
             <img
               src={images.contactUs}
               alt="resume"
@@ -40,7 +41,7 @@ class Contact extends React.Component {
                 width: "80%"
               }}
             />
-            <br />
+            
             <br />
           </ScrollAnimation>
           <ScrollAnimation
@@ -114,7 +115,7 @@ class Contact extends React.Component {
           >
             <Social
               style={{
-                padding: '70px 0',
+                padding: '60px 0',
                 width: "100%",
                 textAlign: "center",
                 fontSize: 40,
