@@ -23,24 +23,25 @@ body {
 }
 
 .ant-layout-header {
-  /* background: #ffffff; */
   background: none;
   padding: 0;
-  line-height: 45px;
-  height: auto;
-  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
-  -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
-  animation-name: example;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
+  line-height: 43px;
+  height: 70px;
+  transition: all 0.5s ease-in-out;
 }
 
-.ant-layout-content{
+.ant-layout-header.animate {
+  background: #ffffff;
+  border-bottom: solid 1px #e8e8e8;
+  box-shadow: 0 0 30px #f3f1f1;
+}
+
+.ant-layout-content {
   background-color: #ffffff;
 }
 
 .ant-layout-footer {
-  background-color: #ffffff; 
+  background-color: #ffffff;
   border-top: solid 1px #e8e8e8;
   box-shadow: 0 0 30px #f3f1f1;
   height: 100px;
@@ -49,51 +50,16 @@ body {
   overflow: hidden;
 }
 
-/* Presentation */
-.presentation-main {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.presentation-text-1 {
-  margin-top: -400px;
-  position: relative;
-  width: 90%;
-  line-height: 80px;
-  color: #f0f0f0;
-  font-size: 4em;
-  font-weight: 800;
-  will-change: transform, opacity;
-  text-align: right;
-}
-
-.presentation-text-2 {
-  margin-top: 150px;
-  position: relative;
-  width: 90%;
-  color: #f0f0f0;
-  font-size: 2.5em;
-  will-change: transform, opacity;
-  text-align: right;
-
-}
-
-.presentation-button {
-  margin-top: 700px;
-  font-size: 2em;
-  font-weight: 800;
-  text-transform: uppercase;
-  height: 70px;
-  width: 340px;
-}
-
-.ant-back-top-icon {
-  border: 1px solid red;
+/* Backtop */
+.ant-back-top-inner {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  background-color: #444444;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
 }
 
 .efaGep {
@@ -101,36 +67,36 @@ body {
 }
 
 .ant-avatar {
-  margin-top: 16px;
   margin-right: 16px;
+  margin-top: -5px;
 }
+
+
 
 /* Menu */
 .menuBar {
   padding: 0 20px;
   padding-top: 2px;
   overflow: hidden;
-  /* border-bottom: solid 1px #e8e8e8;
-  box-shadow: 0 0 30px #f3f1f1; */
 }
 
 .logo {
-  width: 150px;
+  width: 220px;
   float: left;
-
+  line-height: 32px;
+  font-size: 32px;
 }
 
 .logo a {
   display: inline-block;
-  font-size: 24px;
-  font-weight: bold;
-  padding: 10px 13px;
+  font-size: 28px;
+  padding: 13px 13px 0px 13px;
   text-transform: capitalize;
-  margin-top: 5px;
+  text-shadow: 1px 1px 1px #444444;
 }
 
 .menuCon {
-  width: calc(100% - 150px);
+  width: calc(100% - 220px);
   float: left;
 }
 
@@ -158,17 +124,12 @@ body {
   background: none;
 }
 
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes example {
-  from {background-color: none;}
-  to {background-color: white;}
+.menuCon .ant-btn-primary {
+  background-color: #444444;
+  border-color: #444444;
 }
 
-/* Standard syntax */
-@keyframes example {
-  from {background-color: none;}
-  to {background-color: white;}
-}
+
 
 .menuCon .leftMenu {
   float: left;
@@ -254,3 +215,24 @@ body {
   }
 }
 
+.ant-anchor-link-title a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-decoration: none;
+}
+
+.ant-anchor-link-title-active a {
+  color: #1890ff;
+  text-decoration: none;
+}
+
+.ant-timeline-item-head {
+  background-color: none;
+}
+
+.ant-timeline-item-content {
+  margin: 0;
+  position: relative;
+  top: -6px;
+}

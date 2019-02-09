@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { Menu, Icon, Button } from "antd";
+import { withRouter } from 'react-router-dom';
+import {files } from '../resources/files'
 
 class LeftMenu extends Component {
   render() {
     const scroll = (el) => {el.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-    const { mode } = this.props;
+    const { mode, location } = this.props;
+    console.log(location)
     return (
-      <Menu mode={mode}>
+      <Menu mode={mode}  selectedKeys={[location.hash.replace('#', '')]}>
         <Menu.Item key="about-me">
           <Link to="/#about-me" scroll={el => scroll(el)}>
             <Icon type="user" />
@@ -37,7 +40,8 @@ class LeftMenu extends Component {
           type="primary"
           icon="download"
           size="large"
-          style={{ float: "right", margin: "13px 0px" }}
+          href="/static/media/giovanni_fernandes_resume.pdf" target="_blank"
+          style={{ float: "right", margin: "13px 0px 0px 30px" }}
         >
           Download My CV
         </Button>
@@ -46,4 +50,4 @@ class LeftMenu extends Component {
   }
 }
 
-export default LeftMenu;
+export default withRouter(LeftMenu);

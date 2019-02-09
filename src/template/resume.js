@@ -1,39 +1,15 @@
 import React from "react";
 import injectSheet from "react-jss";
-import { Icon, Timeline, Collapse } from "antd";
+import { Icon, Timeline, Collapse, Anchor } from "antd";
+import { HashLink as Link } from "react-router-hash-link";
+import images from "../resources/images";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const styles = theme => ({
   ...theme
 });
 
-// const styles = {
-//   title: {
-//     // outline: "1px solid green",
-//     width: "100%",
-//     marginRight: "50px",
-//     marginBottom: "30px",
-//     borderBottom: "1px solid #eeeeee"
-//   },
-//   flexContainer: {
-//     display: "flex",
-//     flexWrap: "wrap",
-//     padding: "50px 100px",
-//     minHeight: window.screen.height,
-//     alignContent: 'baseline'
 
-//   },
-//   flexBlock: {
-//     flex: "1 0 0",
-//     maxWidth: "50%",
-//     // outline: "1px solid blue",
-//     marginRight: "50px",
-//     marginBottom: "30px"
-//   },
-//   content: {
-//     width: "100%",
-//     marginRight: "50px"
-//   }
-// };
 
 const experiences = [
   {
@@ -346,9 +322,8 @@ const readings = [
 ];
 
 const TimeLineBuilder = props => {
-  const { classes } = props;
   return (
-    <Timeline mode="right" style={{ marginRight: '55%' }}>
+    <Timeline mode="right" style={{ marginRight: "55%" }}>
       {props.items.map((item, key) => (
         <Timeline.Item
           key={key}
@@ -356,7 +331,7 @@ const TimeLineBuilder = props => {
             <Icon
               type={props.iconType}
               theme="filled"
-              style={{ fontSize: "16px" }}
+              style={{ fontSize: "20px" }}
             />
           }
         >
@@ -366,7 +341,7 @@ const TimeLineBuilder = props => {
             style={{
               width: "100%",
               float: "right",
-              marginRight: "calc(-100% - 30px)",
+              marginRight: "calc(-100% - 65px)",
               marginTop: -30,
               textAlign: "justify"
             }}
@@ -382,32 +357,122 @@ const TimeLineBuilder = props => {
 };
 
 class Resume extends React.Component {
-  state = { loading: true };
+  constructor(props) {
+    super(props);
+    this.state = { panel: "" };
+  }
+
+  handleClick = (id, e) => {
+    this.setState({ panel: id });
+    
+  };
 
   render() {
     const { classes } = this.props;
+    const scroll = el => {
+      el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    };
 
-    let ctx = this;
-    setTimeout(() => {
-      ctx.setState({ loading: false });
-    }, 3000);
+    const customPanelStyle = {
+      background: "#f7f7f7",
+      borderRadius: 4,
+      marginBottom: 24,
+      border: 0,
+      overflow: "hidden"
+    };
 
     return (
       <div id="resume" className={classes.containerWrapper}>
-        <div className={classes.flexContainer}>
+        <div className={classes.flexContainer} style={{ position: "relative" }}>
+          <div
+            style={{
+              right: 0,
+              position: "absolute"
+            }}
+          >
+            <Anchor style={{ paddingTop: 110 }}>
+              <Anchor.Link
+                href="#experience"
+                title={
+                  <Link
+                    to="/#experience"
+                    scroll={el => scroll(el)}
+                    className="ant-anchor-link-title"
+                    onClick={e => this.handleClick("1", e)}
+                  >
+                    Experience
+                  </Link>
+                }
+              />
+              <Anchor.Link
+                href="#education"
+                title={
+                  <Link
+                    to="/#education"
+                    scroll={el => scroll(el)}
+                    className="ant-anchor-link-title"
+                  >
+                    Education
+                  </Link>
+                }
+              />
+              <Anchor.Link
+                href="#certifications"
+                title={
+                  <Link
+                    to="/#certifications"
+                    scroll={el => scroll(el)}
+                    className="ant-anchor-link-title"
+                  >
+                    Certifications
+                  </Link>
+                }
+              />
+              <Anchor.Link
+                href="#readings"
+                title={
+                  <Link
+                    to="/#readings"
+                    scroll={el => scroll(el)}
+                    className="ant-anchor-link-title"
+                  >
+                    Readings
+                  </Link>
+                }
+              />
+            </Anchor>
+          </div>
+
           <div className={classes.title}>
             <h2>RESUME</h2>
           </div>
-
+          <div style={{ width: "90%", textAlign: "center", padding: 30 }}>
+          <ScrollAnimation
+              animateIn="bounceInUp"
+              delay={300}
+              offset={1000}
+              animateOnce={true}
+            >
+            <img
+              src={images.resume}
+              alt="resume"
+              style={{
+                objectFit: "contain",
+                opacity: 0.8
+              }}
+            />
+            </ScrollAnimation>
+          </div>
           <Collapse
             bordered={false}
-            style={{ width: "100%" }}
-            defaultActiveKey={["2"]}
+            style={{ width: 1000 }}
+            defaultActiveKey={[this.state.panel]}
           >
+            <div id="experience" style={{ float: "left", marginTop: -93 }} />
             <Collapse.Panel
-              header={<h3>Experience</h3>}
+              header="Experience"
               key={1}
-              style={{ border: "none" }}
+              style={customPanelStyle}
             >
               <TimeLineBuilder
                 {...this.props}
@@ -415,23 +480,22 @@ class Resume extends React.Component {
                 iconType="calendar"
               />
             </Collapse.Panel>
-
-            <Collapse.Panel
-              header={<h3>Education</h3>}
-              key={2}
-              style={{ border: "none" }}
-            >
+            <div id="education" style={{ float: "left", marginTop: -93 }} />
+            <Collapse.Panel header="Education" key={2} style={customPanelStyle}>
               <TimeLineBuilder
                 {...this.props}
                 items={education}
                 iconType="bank"
               />
             </Collapse.Panel>
-
+            <div
+              id="certifications"
+              style={{ float: "left", marginTop: -93 }}
+            />
             <Collapse.Panel
-              header={<h3>Certifications</h3>}
+              header="Certifications"
               key={3}
-              style={{ border: "none" }}
+              style={customPanelStyle}
             >
               <TimeLineBuilder
                 {...this.props}
@@ -439,12 +503,8 @@ class Resume extends React.Component {
                 iconType="safety-certificate"
               />
             </Collapse.Panel>
-
-            <Collapse.Panel
-              header={<h3>Readings</h3>}
-              key={4}
-              style={{ border: "none" }}
-            >
+            <div id="readings" style={{ float: "left", marginTop: -93 }} />
+            <Collapse.Panel header="Readings" key={4} style={customPanelStyle}>
               <TimeLineBuilder
                 {...this.props}
                 items={readings}

@@ -3,6 +3,7 @@ import injectSheet from "react-jss";
 import { Rate, List, Icon, Tag } from "antd";
 import { Parallax } from "react-parallax";
 import images from "../resources/images";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const styles = theme => ({
   ...theme
@@ -44,11 +45,11 @@ const data = [
   {
     title: "Design",
     stars: 6
-  },
-  {
-    title: "Management",
-    stars: 7
   }
+  // {
+  //   title: "Management",
+  //   stars: 7
+  // }
 ];
 
 const languages = [
@@ -182,32 +183,62 @@ const tags = [
   "Personal",
   "Easy to work with",
   "Easy learning",
-  "contributing member",
-  "transparent",
-  "proactive",
-  "easy adaptation",
-  " excellent interpersonal skills"
+  "Contributing member",
+  "Transparent",
+  "Proactive",
+  "Easy adaptation",
+  "Excellent interpersonal skills"
 ];
 
+let starsLoaded = false;
+
 class Skill extends React.Component {
+  // state = {
+  //   data: data.map(v => {
+  //     let newV = { ...v };
+  //     newV.stars = 0;
+  //     return newV;
+  //   })
+  // };
+
   render() {
     const { classes } = this.props;
 
+    //TODO: Starts Animation
+    // if (!starsLoaded) {
+    //   starsLoaded = true;
+    //   for (let i = 0; i < data.length; i++) {
+    //     const el = data[i];
+    //     for (let j = 0; j < el.stars; j++) {
+    //       setTimeout(() => {
+    //         let newData = this.state.data;
+    //         newData[i].stars = j;
+    //         this.setState({ data: newData });
+    //       }, j * 100);
+    //     }
+    //   }
+    // }
+
     return (
       <div id="skills" className={classes.containerWrapper}>
-        <Parallax bgImage={images.presentationOne} strength={1000} bgImageStyle={{opacity:0.03}}>
-          <div className={classes.flexContainer} >
-            <div className={classes.title}>
-              {" "}
-              <h2>MY SKILLS</h2>
-            </div>
-            <div className={classes.flexBlock}>
-              <h3>Development</h3>
-              <br />
-              <List
-                itemLayout="horizontal"
-                dataSource={data}
-                renderItem={item => (
+        <div className={classes.flexContainer} style={{ minHeight: "auto" }}>
+          <div className={classes.title}>
+            {" "}
+            <h2>MY SKILLS</h2>
+          </div>
+          <br />
+          <br />
+          <div className={classes.flexBlock1}>
+            <List
+              itemLayout="horizontal"
+              dataSource={data}
+              renderItem={item => (
+                <ScrollAnimation
+                  animateIn="bounceInLeft"
+                  delay={300}
+                  offset={1000}
+                  animateOnce={true}
+                >
                   <List.Item>
                     <List.Item.Meta
                       avatar={
@@ -231,16 +262,21 @@ class Skill extends React.Component {
                       description={item.description}
                     />
                   </List.Item>
-                )}
-              />
-
-              <br />
-              <h3>Languages</h3>
-              <br />
-              <List
-                itemLayout="horizontal"
-                dataSource={languages}
-                renderItem={item => (
+                </ScrollAnimation>
+              )}
+            />
+          </div>
+          <div className={classes.flexBlock2}>
+            <List
+              itemLayout="horizontal"
+              dataSource={languages}
+              renderItem={item => (
+                <ScrollAnimation
+                  animateIn="bounceInRight"
+                  delay={300}
+                  offset={1000}
+                  animateOnce={true}
+                >
                   <List.Item>
                     <List.Item.Meta
                       avatar={
@@ -259,30 +295,61 @@ class Skill extends React.Component {
                       }
                     />
                   </List.Item>
-                )}
-              />
-            </div>
-            <div className={classes.flexBlock}>
-              <h3>Tags</h3>
-              <br />
-              <div
+                </ScrollAnimation>
+              )}
+            />
+
+            <ScrollAnimation
+              animateIn="jackInTheBox"
+              delay={600}
+              offset={1000}
+              animateOnce={true}
+            >
+              <img
+                src={images.technology}
+                alt="technology"
                 style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                  justifyContent: "center"
+                  objectFit: "contain",
+                  marginTop: -30,
+                  width: "100%",
+                  opacity: 0.8
                 }}
-              >
-                {tags.map((item, key) => (
-                  <Tag color="#2db7f5" key={key} style={{ margin: 5 }}>
-                    {item}
-                  </Tag>
-                ))}
-              </div>
-              <p style={{ float: "right" }}>
-              </p>
-            </div>
+              />
+            </ScrollAnimation>
           </div>
+        </div>
+        <br />
+        <br />
+        <Parallax
+          bgImage={images.presentationOne}
+          strength={1000}
+          bgImageStyle={{ opacity: 0.3 }}
+        >
+          <br />
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%", 
+              height: "240px"
+            }}
+          >
+            {tags.map((item, key) => (
+              <ScrollAnimation
+              animateIn="zoomIn"
+              delay={600}
+              offset={1000}
+              animateOnce={true}
+            >
+              <Tag color="#2db7f5" key={key} style={{ margin: 5 }}>
+                {item}
+              </Tag>
+              </ScrollAnimation>
+            ))}
+          </div>
+          <p style={{ float: "right" }} />
         </Parallax>
       </div>
     );
