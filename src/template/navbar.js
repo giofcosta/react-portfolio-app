@@ -4,8 +4,6 @@ import { HashLink as Link } from "react-router-hash-link";
 import { Drawer, Button, Avatar } from "antd";
 import images from "../resources/images";
 
-let appVersion = "Version 0.0.1";
-
 class Navbar extends Component {
   state = {
     current: "mail",

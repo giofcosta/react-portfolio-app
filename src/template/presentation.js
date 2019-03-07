@@ -27,6 +27,7 @@ const styles = theme => ({
     "@media screen and (min-width: 1024px)": {
       position: "absolute",
       width: "50%",
+      top: 'auto',
       bottom: 0,
       left: 100,
       right: 'auto',
