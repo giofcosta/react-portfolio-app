@@ -10,43 +10,98 @@ import { HashLink as Link } from "react-router-hash-link";
 const styles = theme => ({
   ...theme,
   textOne: {
+    width: 300,
     position: "absolute",
-    width: "50%",
-    bottom: 0,
-    left: 100,
-    lineHeight: "80px",
+    top: 100,
+    right: 0,
+    left: 0,
+    marginLeft: "auto",
+    marginRight: "auto",
+    lineHeight: '32px',
     color: "#ffffff",
-    fontSize: "4em",
+    fontSize: 42,
     fontWeight: 600,
     willChange: "transform, opacity",
-    textAlign: "left",
+    textAlign: "center",
     textShadow: "1px 1px 5px #000000",
-    '@media screen and (min-width: 576px)': {
-
+    "@media screen and (min-width: 1024px)": {
+      position: "absolute",
+      width: "50%",
+      bottom: 0,
+      left: 100,
+      right: 'auto',
+      lineHeight: "80px",
+      color: "#ffffff",
+      fontSize: 98,
+      fontWeight: 600,
+      willChange: "transform, opacity",
+      textAlign: "left",
+      textShadow: "1px 1px 5px #000000"
+    }
+  },
+  spanOne: {
+    fontSize: 26,
+    "@media screen and (min-width: 800px)": {
+      fontSize: 63
+    }
+  },
+  spanTwo: {
+    fontSize: 18,
+    "@media screen and (min-width: 800px)": {
+      fontSize: 38
     }
   },
   textTwo: {
     position: "absolute",
-    width: "530px",
-    top: "20%",
-    right: 100,
+    width: "100%",
+    bottom: 20,
+    height: 360,
+    padding: 24,
     color: "#ffffff",
-    fontSize: "2.5em",
-    textAlign: "justify",
+    fontSize: 20,
+    textAlign: "left",
     textShadow: "1px 1px 5px #000000",
-    lineHeight: "40px"
+    "@media screen and (min-width: 1024px)": {
+      position: "absolute",
+      width: "530px",
+      top: "20%",
+      right: 100,
+      color: "#ffffff",
+      fontSize: "2.5em",
+      textAlign: "justify",
+      textShadow: "1px 1px 5px #000000",
+      lineHeight: "40px"
+    }
   },
+
   button: {
+    width: 200,
     position: "absolute",
-    bottom: 80,
-    right: 100,
-    fontSize: "50px",
-    height: 68,
+    bottom: 40,
+    right: 0,
+    left: 0,
+    marginLeft: "auto",
+    marginRight: "auto",
+    fontSize: 30,
+    height: 40,
     textTransform: "uppercase",
     textShadow: "1px 1px 5px #000000",
     boxShadow: "1px 1px 5px #000000",
-    lineHeight: 0
-  },
+    lineHeight: 0,
+    "@media screen and (min-width: 1024px)": {
+      width: 'auto',
+      position: "absolute",
+      bottom: 80,
+      left: 'auto',
+      right: 100,
+      fontSize: "50px",
+      height: 68,
+      textTransform: "uppercase",
+      textShadow: "1px 1px 5px #000000",
+      boxShadow: "1px 1px 5px #000000",
+      lineHeight: 0
+    }
+  }
 });
 
 class Presentation extends React.Component {
@@ -77,26 +132,26 @@ class Presentation extends React.Component {
           bgImage={resources.presentation}
           strength={500}
           bgImageStyle={{
-            objectFit: "none",
+            objectFit: "none"
           }}
         >
           <div
             className={classes.flexContainer}
             style={{ height: this.state.windowHeight }}
           >
-            <ScrollAnimation
+            {/* <ScrollAnimation
               animateIn="fadeIn"
               delay="800"
               offset={1000}
               animateOnce={true}
-            >
+            > */}
               <p className={classes.textOne}>
-                <span style={{ fontSize: 63 }}>WELCOME</span>
-                <span style={{ fontSize: 38 }}> to my</span>
+                <span className={classes.spanOne}>WELCOME</span>
+                <span className={classes.spanTwo}> to my</span>
                 <br />
-                <span style={{ fontSize: 98 }}>WEBSITE</span>
+                <span>WEBSITE</span>
               </p>
-            </ScrollAnimation>
+            {/* </ScrollAnimation> */}
 
             <div className={classes.textTwo}>
               <Typist avgTypingDelay={25}>
@@ -131,18 +186,18 @@ class Presentation extends React.Component {
                 <span style={{ float: "right" }}>I hope you enjoy.</span>
               </ScrollAnimation>
             </div>
-            <ScrollAnimation
+            {/* <ScrollAnimation
               animateIn="fadeIn"
               delay="1200"
               offset={1000}
               animateOnce={true}
-            >
-              <Button className={classes.button} ghost size={"large"}>
-                <Link to="/#about-me" scroll={el => scroll(el)}>
-                  about me
-                </Link>
-              </Button>
-            </ScrollAnimation>
+            > */}
+            <Button className={classes.button} ghost size={"large"}>
+              <Link to="/#about-me" scroll={el => scroll(el)}>
+                about me
+              </Link>
+            </Button>
+            {/* </ScrollAnimation> */}
           </div>
         </Parallax>
       </div>

@@ -273,3 +273,14 @@ a{
 .ant-timeline-item-head {
   background-color: rgb(247, 247, 247);;
 }
+
+#presentation .react-parallax-bgimage {
+  left: 120% !important;
+  object-fit: "none"
+}
+
+@media screen and (min-width: 800px) {
+  #presentation .react-parallax-bgimage {
+    left: 50% !important 
+  }
+}
