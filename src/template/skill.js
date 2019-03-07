@@ -6,7 +6,16 @@ import images from "../resources/images";
 import ScrollAnimation from "react-animate-on-scroll";
 
 const styles = theme => ({
-  ...theme
+  ...theme,
+  tags: {
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    height: "auto",
+    marginRight: "0",
+  }
 });
 
 const data = [
@@ -190,34 +199,9 @@ const tags = [
   "Excellent interpersonal skills"
 ];
 
-let starsLoaded = false;
-
 class Skill extends React.Component {
-  // state = {
-  //   data: data.map(v => {
-  //     let newV = { ...v };
-  //     newV.stars = 0;
-  //     return newV;
-  //   })
-  // };
-
   render() {
     const { classes } = this.props;
-
-    //TODO: Starts Animation
-    // if (!starsLoaded) {
-    //   starsLoaded = true;
-    //   for (let i = 0; i < data.length; i++) {
-    //     const el = data[i];
-    //     for (let j = 0; j < el.stars; j++) {
-    //       setTimeout(() => {
-    //         let newData = this.state.data;
-    //         newData[i].stars = j;
-    //         this.setState({ data: newData });
-    //       }, j * 100);
-    //     }
-    //   }
-    // }
 
     return (
       <div id="skills" className={classes.containerWrapper}>
@@ -325,26 +309,17 @@ class Skill extends React.Component {
           bgImageStyle={{ opacity: 0.3 }}
         >
           <br />
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "100%", 
-              height: "240px"
-            }}
-          >
+          <div className={classes.tags}>
             {tags.map((item, key) => (
               <ScrollAnimation
-              animateIn="zoomIn"
-              delay={600}
-              offset={1000}
-              animateOnce={true}
-            >
-              <Tag color="#2db7f5" key={key} style={{ margin: 5 }}>
-                {item}
-              </Tag>
+                animateIn="zoomIn"
+                delay={600}
+                offset={1000}
+                animateOnce={true}
+              >
+                <Tag color="#2db7f5" key={key} style={{ margin: 5 }}>
+                  {item}
+                </Tag>
               </ScrollAnimation>
             ))}
           </div>

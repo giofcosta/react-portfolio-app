@@ -176,16 +176,6 @@ class Presentation extends React.Component {
                   portfolio and my work.
                 </small>
               </ScrollAnimation>
-              <br />
-              <br />
-              <ScrollAnimation
-                animateIn="fadeIn"
-                delay="3000"
-                offset={1000}
-                animateOnce={true}
-              >
-                <span style={{ float: "right" }}>I hope you enjoy.</span>
-              </ScrollAnimation>
             </div>
             {/* <ScrollAnimation
               animateIn="fadeIn"

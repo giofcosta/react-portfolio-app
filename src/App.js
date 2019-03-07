@@ -9,19 +9,28 @@ import ScrollAnimation from "react-animate-on-scroll";
 
 const { Header, Content, Footer } = Layout;
 
-console.clear()
-console.log(`window.screen.availHeight: ${window.screen.availHeight}`)
-console.log(`document.documentElement.clientHeight	: ${document.documentElement.clientHeight	}`)
-
+console.clear();
+console.log(`window.screen.availHeight: ${window.screen.availHeight}`);
+console.log(
+  `document.documentElement.clientHeight	: ${
+    document.documentElement.clientHeight
+  }`
+);
 
 const theme = {
   title: {
-    // outline: "1px solid green",
     width: "100%",
-    marginBottom: "30px",
+    marginBottom: "0",
     borderBottom: "1px solid #e8e8e8",
     boxShadow: "0px 1px 5px -5px rgba(0,0,0,0.75)",
-    marginTop: "60px"
+    marginTop: "24px",
+    "@media screen and (min-width: 1024px)": {
+      width: "100%",
+      marginBottom: "30px",
+      borderBottom: "1px solid #e8e8e8",
+      boxShadow: "0px 1px 5px -5px rgba(0,0,0,0.75)",
+      marginTop: "60px"
+    }
   },
   containerWrapper: {
     backgroundColor: "#ffffff",
@@ -33,28 +42,41 @@ const theme = {
   },
   flexContainer: {
     margin: "0 auto",
-    width: "1020px",
+    width: "auto",
+    padding: 20,
     display: "flex",
     flexWrap: "wrap",
-    // outline: "1px solid red",
-    // height: '100%',
-    // padding: "50px 0",
-    // paddingLeft: "100px",
     minHeight: document.documentElement.clientHeight,
-    alignContent: "baseline"
+    alignContent: "baseline",
+    "@media screen and (min-width: 1024px)": {
+      margin: "0 auto",
+      width: "1020px",
+      padding: 0,
+      display: "flex",
+      flexWrap: "wrap",
+      minHeight: document.documentElement.clientHeight,
+      alignContent: "baseline"
+    }
   },
   flexBlock1: {
-    flex: "1 0 0",
-    maxWidth: "50%",
-    marginRight: "25px"
-    // marginRight: "50px",
-    // marginBottom: "30px"
+    flex: "none",
+    maxWidth: "100%",
+    marginRight: "0",
+    "@media screen and (min-width: 1024px)": {
+      flex: "1 0 0",
+      maxWidth: "50%",
+      marginRight: "25px"
+    }
   },
   flexBlock2: {
-    flex: "1 0 0",
-    maxWidth: "50%",
-    marginLeft: "25px"
-    // marginBottom: "30px"
+    flex: "none",
+    maxWidth: "100%",
+    marginRight: "0",
+    "@media screen and (min-width: 1024px)": {
+      flex: "1 0 0",
+      maxWidth: "50%",
+      marginRight: "25px"
+    }
   },
   content: {
     width: "100%",
@@ -66,11 +88,7 @@ class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <ScrollAnimation
-          animateIn="fadeIn"
-          delay={200}
-          animateOnce={true}
-        >
+        <ScrollAnimation animateIn="fadeIn" delay={200} animateOnce={true}>
           <Layout className="layout">
             <Affix offsetTop={0}>
               <Header

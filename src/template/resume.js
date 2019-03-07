@@ -4,12 +4,28 @@ import { Icon, Timeline, Collapse, Anchor } from "antd";
 import { HashLink as Link } from "react-router-hash-link";
 import images from "../resources/images";
 import ScrollAnimation from "react-animate-on-scroll";
+import MediaQuery from "react-responsive";
 
 const styles = theme => ({
-  ...theme
+  ...theme,
+  anchorMenu: {
+    display: "none",
+    "@media screen and (min-width: 1024px)": {
+      display: "block",
+      right: 0,
+      position: "absolute"
+    }
+  },
+  itemContent: {
+    "@media screen and (min-width: 1024px)": {
+      width: "100%",
+      float: "right",
+      marginRight: "calc(-100% - 65px)",
+      marginTop: -30,
+      textAlign: "justify"
+    }
+  }
 });
-
-
 
 const experiences = [
   {
@@ -321,12 +337,14 @@ const readings = [
   }
 ];
 
-const TimeLineBuilder = props => {
+const ItemsBuilder = props => {
+  const { classes } = props;
   return (
-    <Timeline mode="right" style={{ marginRight: "55%" }}>
+    <React.Fragment>
       {props.items.map((item, key) => (
         <Timeline.Item
           key={key}
+          className={props.classMode}
           dot={
             <Icon
               type={props.iconType}
@@ -338,13 +356,7 @@ const TimeLineBuilder = props => {
           <h3>{item.title}</h3>
           {item.date}
           <div
-            style={{
-              width: "100%",
-              float: "right",
-              marginRight: "calc(-100% - 65px)",
-              marginTop: -30,
-              textAlign: "justify"
-            }}
+            className={classes.itemContent}
           >
             <h4>{item.rule}</h4>
             {item.description}
@@ -352,7 +364,24 @@ const TimeLineBuilder = props => {
           <div style={{ clear: "both" }} />
         </Timeline.Item>
       ))}
-    </Timeline>
+    </React.Fragment>
+  );
+};
+
+const TimeLineBuilder = props => {
+  return (
+    <React.Fragment>
+      <MediaQuery query="(min-device-width: 1024px)">
+        <Timeline mode="right" style={{ marginRight: "55%" }}>
+          <ItemsBuilder {...props} classMode="ant-timeline-item-right" />
+        </Timeline>
+      </MediaQuery>
+      <MediaQuery query="(max-device-width: 1024px)">
+        <Timeline mode="left">
+          <ItemsBuilder {...props} classMode="ant-timeline-item-left" />
+        </Timeline>
+      </MediaQuery>
+    </React.Fragment>
   );
 };
 
@@ -364,7 +393,6 @@ class Resume extends React.Component {
 
   handleClick = (id, e) => {
     this.setState({ panel: id });
-    
   };
 
   render() {
@@ -384,12 +412,7 @@ class Resume extends React.Component {
     return (
       <div id="resume" className={classes.containerWrapper}>
         <div className={classes.flexContainer} style={{ position: "relative" }}>
-          <div
-            style={{
-              right: 0,
-              position: "absolute"
-            }}
-          >
+          <div className={classes.anchorMenu}>
             <Anchor style={{ paddingTop: 110 }}>
               <Anchor.Link
                 href="#experience"
@@ -446,21 +469,23 @@ class Resume extends React.Component {
           <div className={classes.title}>
             <h2>RESUME</h2>
           </div>
-          <div style={{ width: "90%", textAlign: "center", padding: 30 }}>
-          <ScrollAnimation
+          <div style={{ width: "100%", textAlign: "center", padding: 30 }}>
+            <ScrollAnimation
               animateIn="bounceInUp"
               delay={300}
               offset={1000}
               animateOnce={true}
             >
-            <img
-              src={images.resume}
-              alt="resume"
-              style={{
-                objectFit: "contain",
-                opacity: 0.8
-              }}
-            />
+              <img
+                src={images.resume}
+                alt="resume"
+                style={{
+                  objectFit: "contain",
+                  opacity: 0.8,
+                  width: "100%",
+                  maxWidth: "600px"
+                }}
+              />
             </ScrollAnimation>
           </div>
           <Collapse

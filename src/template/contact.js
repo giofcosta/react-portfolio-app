@@ -6,7 +6,22 @@ import ScrollAnimation from "react-animate-on-scroll";
 import { Social } from "../template";
 
 const styles = theme => ({
-  ...theme
+  ...theme,
+  infoList: {
+    listStyle: 'none',
+    margin: '30px 0',
+    padding: '0'
+  },
+  infoItem: {
+    margin: '10px 0',
+    width: '100%',
+    textAlign: 'center',
+    "@media screen and (min-width: 1024px)": {
+      width: 'auto',
+      display:'inline-block',
+      margin: '30px',
+    }
+  }
 });
 
 class Contact extends React.Component {
@@ -31,7 +46,7 @@ class Contact extends React.Component {
             style={{ textAlign: "center" }}
           >
             <br />
-            
+
             <img
               src={images.contactUs}
               alt="resume"
@@ -41,7 +56,7 @@ class Contact extends React.Component {
                 width: "80%"
               }}
             />
-            
+
             <br />
           </ScrollAnimation>
           <ScrollAnimation
@@ -51,56 +66,61 @@ class Contact extends React.Component {
             animateOnce={true}
             style={{ margin: "0 auto" }}
           >
-            <span style={{ margin: 30 }}>
-              {" "}
-              <Icon
-                type="environment"
-                theme="filled"
-                style={{ fontSize: 18 }}
-              />
-              <big>
-                <b> Location: </b>
-              </big>{" "}
-              <a
-                href="https://www.google.com/maps/place/Florianópolis"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Florianópolis, SC - Brazil
-              </a>
-            </span>
-            <span style={{ margin: 30 }}>
-              {" "}
-              <Icon
-                type="environment"
-                theme="filled"
-                style={{ fontSize: 18 }}
-              />
-              <big>
-                <b> Location: </b>
-              </big>{" "}
-              <a
-                href="tel:+5548991216434"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                +55 (48) 991216434
-              </a>
-            </span>
-            <span style={{ margin: 30 }}>
-              {" "}
-              <Icon type="mail" theme="filled" style={{ fontSize: 18 }} />
-              <big>
-                <b> Mail: </b>
-              </big>{" "}
-              <a
-                href="mailto:giofcosta@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                giofcosta@gmail.com
-              </a>
-            </span>
+            <ul className={classes.infoList}>
+              <li className={classes.infoItem}>
+                {" "}
+                <Icon
+                  type="environment"
+                  theme="filled"
+                  style={{ fontSize: 18 }}
+                />
+                <big>
+                  <b> Location: </b>
+                </big>{" "}
+                <a
+                  href="https://www.google.com/maps/place/Florianópolis"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Florianópolis, SC - Brazil
+                </a>
+              </li>
+              <li className={classes.infoItem}>
+                {" "}
+                <Icon
+                  type="environment"
+                  theme="filled"
+                  style={{ fontSize: 18 }}
+                />
+                <big>
+                  <b> Location: </b>
+                </big>{" "}
+                <a
+                  href="tel:+5548991216434"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  +55 (48) 991216434
+                </a>
+              </li>
+              <li className={classes.infoItem}>
+                {" "}
+                <Icon type="mail" theme="filled" style={{ fontSize: 18 }} />
+                <big>
+                  <b> Mail: </b>
+                </big>{" "}
+                <a
+                  href="mailto:giofcosta@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  giofcosta@gmail.com
+                </a>
+              </li>
+            </ul>
+            {/* <span style={{ margin: 30 }}> </span>
+            <span style={{ margin: 30 }} />
+            <span style={{ margin: 30 }} /> */}
             <br />
             <br />
           </ScrollAnimation>
@@ -114,7 +134,6 @@ class Contact extends React.Component {
           >
             <Social
               style={{
-                padding: '60px 0',
                 width: "100%",
                 textAlign: "center",
                 fontSize: 40,
@@ -122,9 +141,7 @@ class Contact extends React.Component {
                 marginBottom: 100
               }}
             />
-            
           </ScrollAnimation>
-          
         </div>
       </div>
     );

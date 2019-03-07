@@ -281,7 +281,6 @@ a{
 }
 
 .ant-timeline-item-content {
-  margin: 0;
   position: relative;
   top: -6px;
 }
@@ -298,5 +297,11 @@ a{
 @media screen and (min-width: 800px) {
   #presentation .react-parallax-bgimage {
     left: 50% !important 
+  }
+  
+  .ant-timeline-item-content {
+    margin: 0;
+    position: relative;
+    top: -6px;
   }
 }
