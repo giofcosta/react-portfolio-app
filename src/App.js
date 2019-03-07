@@ -9,6 +9,11 @@ import ScrollAnimation from "react-animate-on-scroll";
 
 const { Header, Content, Footer } = Layout;
 
+console.clear()
+console.log(`window.screen.availHeight: ${window.screen.availHeight}`)
+console.log(`document.documentElement.clientHeight	: ${document.documentElement.clientHeight	}`)
+
+
 const theme = {
   title: {
     // outline: "1px solid green",
@@ -28,14 +33,14 @@ const theme = {
   },
   flexContainer: {
     margin: "0 auto",
-    width: "1170px",
+    width: "1020px",
     display: "flex",
     flexWrap: "wrap",
     // outline: "1px solid red",
     // height: '100%',
     // padding: "50px 0",
     // paddingLeft: "100px",
-    minHeight: window.screen.availHeight,
+    minHeight: document.documentElement.clientHeight,
     alignContent: "baseline"
   },
   flexBlock1: {

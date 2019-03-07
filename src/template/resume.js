@@ -465,7 +465,7 @@ class Resume extends React.Component {
           </div>
           <Collapse
             bordered={false}
-            style={{ width: 1000 }}
+            style={{ width: 900 }}
             defaultActiveKey={[this.state.panel]}
           >
             <div id="experience" style={{ float: "left", marginTop: -93 }} />

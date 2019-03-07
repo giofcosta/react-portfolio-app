@@ -37,7 +37,7 @@ class Contact extends React.Component {
               alt="resume"
               style={{
                 objectFit: "contain",
-                opacity: 0.5,
+                opacity: 0.7,
                 width: "80%"
               }}
             />
@@ -46,7 +46,7 @@ class Contact extends React.Component {
           </ScrollAnimation>
           <ScrollAnimation
             animateIn="fadeIn"
-            delay={300}
+            delay={1000}
             offset={1000}
             animateOnce={true}
             style={{ margin: "0 auto" }}
@@ -107,10 +107,9 @@ class Contact extends React.Component {
 
           <ScrollAnimation
             animateIn="slideInUp"
-            delay={300}
+            delay={1000}
             offset={1000}
             animateOnce={true}
-            initiallyVisible={true}
             style={{ margin: "0 auto" }}
           >
             <Social
@@ -119,11 +118,13 @@ class Contact extends React.Component {
                 width: "100%",
                 textAlign: "center",
                 fontSize: 40,
-                opacity: 0.8
+                opacity: 0.8,
+                marginBottom: 100
               }}
             />
             
           </ScrollAnimation>
+          
         </div>
       </div>
     );

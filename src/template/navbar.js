@@ -4,6 +4,8 @@ import { HashLink as Link } from "react-router-hash-link";
 import { Drawer, Button, Avatar } from "antd";
 import images from "../resources/images";
 
+let appVersion = "Version 0.0.1";
+
 class Navbar extends Component {
   state = {
     current: "mail",
@@ -25,20 +27,22 @@ class Navbar extends Component {
     const scroll = el => {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     };
+
     return (
       <nav className="menuBar">
         <div className="logo">
           <Link to="/#presentation" scroll={el => scroll(el)}>
-          <Avatar src={images.presentation} size={48}/> 
+            <Avatar src={images.character} size={48} shape="square" />
+            <big>GIOVANNI FERNANDES</big>
+            <small>Web, Mobile and Game Developer</small>
           </Link>
         </div>
         <div className="menuCon">
           {/* <LeftMenu mode="horizontal" /> */}
-          <div className="leftMenu">
-				    </div>
-				    <div className="rightMenu">
-	        			<LeftMenu mode="horizontal"  />
-				    </div>
+          <div className="leftMenu" />
+          <div className="rightMenu">
+            <LeftMenu mode="horizontal" />
+          </div>
           <Button className="barsMenu" type="primary" onClick={this.showDrawer}>
             <span className="barsBtn" />
           </Button>

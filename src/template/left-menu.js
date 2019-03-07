@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { Menu, Icon, Button } from "antd";
 import { withRouter } from 'react-router-dom';
-import {files } from '../resources/files'
 
 class LeftMenu extends Component {
   render() {
@@ -40,10 +39,10 @@ class LeftMenu extends Component {
           type="primary"
           icon="download"
           size="large"
-          href="/static/media/giovanni_fernandes_resume.pdf" target="_blank"
+          href={process.env.PUBLIC_URL + "/GiovanniFernandesResume2019.pdf"} target="_blank"
           style={{ float: "right", margin: "13px 0px 0px 30px" }}
         >
-          Download My CV
+          Download Resume
         </Button>
       </Menu>
     );

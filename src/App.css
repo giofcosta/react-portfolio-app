@@ -6,11 +6,16 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 body {
   cursor: default;
   background-color: #ffffff;
+}
+
+a{
+  text-decoration: none !important;
 }
 
 #root {
@@ -80,23 +85,55 @@ body {
   overflow: hidden;
 }
 
+
+.ant-layout-header.animate .logo a
+{
+  color: #666666;
+  text-shadow: 1px 1px 1px #eeeeee;
+}
+
+.ant-layout-header .ant-menu-item
+{
+  border: none !important;
+}
+
+#presentation .react-parallax-bgimage{
+  filter: grayscale(20%) !important
+}
+
 .logo {
-  width: 220px;
+  width: 400px;
   float: left;
-  line-height: 32px;
-  font-size: 32px;
+  line-height: 0px;
 }
 
 .logo a {
+  color: white;
   display: inline-block;
-  font-size: 28px;
   padding: 13px 13px 0px 13px;
-  text-transform: capitalize;
   text-shadow: 1px 1px 1px #444444;
 }
 
+.logo a big{
+  font-size: 25px;
+  display: block;
+  margin-left: 63px;
+  margin-top: -30px;
+  font-variant: small-caps;
+}
+
+.logo a small{
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  margin-left: 65px;
+  margin-top: 22px;
+  font-variant: normal;
+}
+
+
 .menuCon {
-  width: calc(100% - 220px);
+  width: calc(100% - 400px);
   float: left;
 }
 
@@ -227,12 +264,12 @@ body {
   text-decoration: none;
 }
 
-.ant-timeline-item-head {
-  background-color: none;
-}
-
 .ant-timeline-item-content {
   margin: 0;
   position: relative;
   top: -6px;
+}
+
+.ant-timeline-item-head {
+  background-color: rgb(247, 247, 247);;
 }

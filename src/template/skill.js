@@ -32,7 +32,7 @@ const data = [
   },
   {
     title: "Software Architecture",
-    stars: 7
+    stars: 8
   },
   {
     title: "Data Structures",
@@ -310,9 +310,8 @@ class Skill extends React.Component {
                 alt="technology"
                 style={{
                   objectFit: "contain",
-                  marginTop: -30,
                   width: "100%",
-                  opacity: 0.8
+                  opacity: 0.9
                 }}
               />
             </ScrollAnimation>

@@ -10,6 +10,7 @@ const images = {
   presentation: require("./profile.jpg"),
   presentationOne: require("./work-office.jpg"),
   presentationTwo: require("./solo-developers.png"),
+  character: require('./character.png'),
   technology: require("./technology.png"),
   tdc: require("./tdc.png"),
   contactUs: require("./contact-us.png"),

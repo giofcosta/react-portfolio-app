@@ -46,7 +46,7 @@ class AboutMe extends React.Component {
                     offset={1000}
                     animateOnce={true}
                   >
-                    <List.Item>
+                    <List.Item style={{padding: '7px 0'}}>
                       <List.Item.Meta
                         avatar={
                           <Icon
@@ -115,6 +115,7 @@ class AboutMe extends React.Component {
               <ScrollAnimation
                 animateIn="bounceIn"
                 duration="1"
+                animateOnce={true}
                 delay="600"
                 style={{ width: "100%", height: "320px" }}
               >

@@ -12,20 +12,23 @@ const styles = theme => ({
   textOne: {
     position: "absolute",
     width: "50%",
-    bottom: 100,
+    bottom: 0,
     left: 100,
     lineHeight: "80px",
     color: "#ffffff",
     fontSize: "4em",
-    fontWeight: 800,
+    fontWeight: 600,
     willChange: "transform, opacity",
     textAlign: "left",
-    textShadow: "1px 1px 5px #000000"
+    textShadow: "1px 1px 5px #000000",
+    '@media screen and (min-width: 576px)': {
+
+    }
   },
   textTwo: {
     position: "absolute",
     width: "530px",
-    top: 250,
+    top: "20%",
     right: 100,
     color: "#ffffff",
     fontSize: "2.5em",
@@ -35,18 +38,34 @@ const styles = theme => ({
   },
   button: {
     position: "absolute",
-    bottom: 182,
+    bottom: 80,
     right: 100,
     fontSize: "50px",
     height: 68,
     textTransform: "uppercase",
     textShadow: "1px 1px 5px #000000",
     boxShadow: "1px 1px 5px #000000",
-    lineHeight: "78px !important"
-  }
+    lineHeight: 0
+  },
 });
 
 class Presentation extends React.Component {
+  updateDimensions = () => {
+    this.setState({ windowHeight: window.innerHeight });
+  };
+
+  componentWillMount = () => {
+    this.updateDimensions();
+  };
+
+  componentDidMount = () => {
+    window.addEventListener("resize", this.updateDimensions);
+  };
+
+  componentWillUnmount = () => {
+    window.removeEventListener("resize", this.updateDimensions);
+  };
+
   render() {
     const { classes } = this.props;
     const scroll = el => {
@@ -58,14 +77,19 @@ class Presentation extends React.Component {
           bgImage={resources.presentation}
           strength={500}
           bgImageStyle={{
-            objectFit: "scale-down",
-            width: "150%",
-            height: "150%",
-            left: "960px"
+            objectFit: "none",
           }}
         >
-          <div className={classes.flexContainer}>
-            <ScrollAnimation animateIn="fadeIn" delay="1000" animateOnce={true}>
+          <div
+            className={classes.flexContainer}
+            style={{ height: this.state.windowHeight }}
+          >
+            <ScrollAnimation
+              animateIn="fadeIn"
+              delay="800"
+              offset={1000}
+              animateOnce={true}
+            >
               <p className={classes.textOne}>
                 <span style={{ fontSize: 63 }}>WELCOME</span>
                 <span style={{ fontSize: 38 }}> to my</span>
@@ -75,7 +99,7 @@ class Presentation extends React.Component {
             </ScrollAnimation>
 
             <div className={classes.textTwo}>
-              <Typist avgTypingDelay={40}>
+              <Typist avgTypingDelay={25}>
                 <small>
                   <Typist.Delay ms={400} />
                   <b> WEB FULL-STACK,</b>
@@ -87,7 +111,8 @@ class Presentation extends React.Component {
 
               <ScrollAnimation
                 animateIn="fadeIn"
-                delay="3000"
+                delay="2500"
+                offset={1000}
                 animateOnce={true}
               >
                 <small>
@@ -99,16 +124,22 @@ class Presentation extends React.Component {
               <br />
               <ScrollAnimation
                 animateIn="fadeIn"
-                delay="4000"
+                delay="3000"
+                offset={1000}
                 animateOnce={true}
               >
                 <span style={{ float: "right" }}>I hope you enjoy.</span>
               </ScrollAnimation>
             </div>
-            <ScrollAnimation animateIn="fadeIn" delay="2000" animateOnce={true}>
+            <ScrollAnimation
+              animateIn="fadeIn"
+              delay="1200"
+              offset={1000}
+              animateOnce={true}
+            >
               <Button className={classes.button} ghost size={"large"}>
                 <Link to="/#about-me" scroll={el => scroll(el)}>
-                  More about me
+                  about me
                 </Link>
               </Button>
             </ScrollAnimation>
