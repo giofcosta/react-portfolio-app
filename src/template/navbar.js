@@ -6,7 +6,6 @@ import images from "../resources/images";
 
 class Navbar extends Component {
   state = {
-    current: "mail",
     visible: false
   };
   showDrawer = () => {
@@ -29,7 +28,7 @@ class Navbar extends Component {
     return (
       <nav className="menuBar">
         <div className="logo">
-          <Link to="/#presentation" scroll={el => scroll(el)}>
+          <Link to="/#home" scroll={el => scroll(el)}>
             <Avatar src={images.character} size={48} shape="square" />
             <big>GIOVANNI FERNANDES</big>
             <small>Web, Mobile and Game Developer</small>
@@ -45,7 +44,7 @@ class Navbar extends Component {
             <span className="barsBtn" />
           </Button>
           <Drawer
-            title="Menu"
+            title=""
             placement="right"
             closable={false}
             onClose={this.onClose}

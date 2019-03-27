@@ -6,6 +6,8 @@ import injectSheet from "react-jss";
 import ScrollAnimation from "react-animate-on-scroll";
 import { Parallax } from "react-parallax";
 import { HashLink as Link } from "react-router-hash-link";
+import { Waypoint } from "react-waypoint";
+import {changeHash} from '../utils'
 
 const styles = theme => ({
   ...theme,
@@ -128,7 +130,8 @@ class Presentation extends React.Component {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     };
     return (
-      <div id="presentation" className={classes.contentWrapper}>
+      <div id="home" className={classes.contentWrapper}>
+        <Waypoint onEnter={() => changeHash("#home")} />
         <Parallax
           bgImage={resources.presentation}
           strength={500}

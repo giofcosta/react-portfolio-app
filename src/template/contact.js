@@ -1,9 +1,9 @@
 import React from "react";
-import { Card, Icon } from "antd";
+import { Icon } from "antd";
 import injectCSS from "react-jss";
 import images from "../resources/images";
 import ScrollAnimation from "react-animate-on-scroll";
-import { Social } from "../template";
+import { Social, PageTitle } from "../template";
 
 const styles = theme => ({
   ...theme,
@@ -31,12 +31,10 @@ class Contact extends React.Component {
       <div
         id="contact"
         className={classes.containerWrapper}
-        style={{ zIndex: 999, overflow: "hidden" }}
+        style={{ zIndex: 11, overflow: "hidden" }}
       >
         <div className={classes.flexContainer} style={{ minHeight: "auto" }}>
-          <div className={classes.title}>
-            <h2>CONTACT</h2>
-          </div>
+          <PageTitle name="CONTACT" hash="#contact" />
           <ScrollAnimation
             animateIn="bounce"
             delay={500}
@@ -118,9 +116,6 @@ class Contact extends React.Component {
                 </a>
               </li>
             </ul>
-            {/* <span style={{ margin: 30 }}> </span>
-            <span style={{ margin: 30 }} />
-            <span style={{ margin: 30 }} /> */}
             <br />
             <br />
           </ScrollAnimation>

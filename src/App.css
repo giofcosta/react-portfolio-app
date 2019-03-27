@@ -83,6 +83,7 @@ a{
   padding: 0 20px;
   padding-top: 2px;
   overflow: hidden;
+  z-index: 11;
 }
 
 
@@ -90,6 +91,7 @@ a{
 {
   color: #666666;
   text-shadow: 1px 1px 1px #eeeeee;
+  z-index: 999;
 }
 
 
@@ -99,7 +101,7 @@ a{
   border: none !important;
 }
 
-#presentation .react-parallax-bgimage{
+#home .react-parallax-bgimage{
   filter: grayscale(20%) !important
 }
 
@@ -136,7 +138,7 @@ a{
 
 .menuCon {
   width: calc(100% - 400px);
-  float: left;
+  float: right;
 }
 
 .menuCon .ant-menu-item {
@@ -164,8 +166,9 @@ a{
 }
 
 .menuCon .ant-btn-primary {
-  border-color: white;
-  color: white;
+  border-color: #666666;
+  color: #666666;
+  background-color: transparent;
 }
 
 
@@ -180,6 +183,8 @@ a{
 
 .ant-layout-header.animate .menuCon .ant-btn-primary{
   border: 1px solid  #666666;
+  background-color: transparent;
+  color: #666666;
 }
 
 .ant-layout-header.animate .barsBtn{
@@ -205,7 +210,7 @@ a{
   display: block;
   width: 20px;
   height: 2px;
-  background: white;
+  background: #666666;
   position: relative;
 }
 
@@ -217,7 +222,7 @@ a{
   top: -6px;
   left: 0;
   height: 2px;
-  background: white;
+  background: #666666;
 }
 
 .barsBtn:after {
@@ -289,13 +294,20 @@ a{
   background-color: rgb(247, 247, 247);;
 }
 
-#presentation .react-parallax-bgimage {
+.ant-drawer-content .ant-btn{
+  float: none !important;
+  color: #666666;
+  background-color: transparent;
+  border: 1px solid #666666;
+}
+
+#home .react-parallax-bgimage {
   left: 120% !important;
   object-fit: "none"
 }
 
 @media screen and (min-width: 800px) {
-  #presentation .react-parallax-bgimage {
+  #home .react-parallax-bgimage {
     left: 50% !important 
   }
   

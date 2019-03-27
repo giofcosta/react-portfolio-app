@@ -18,20 +18,20 @@ console.log(
 );
 
 const theme = {
-  title: {
-    width: "100%",
-    marginBottom: "0",
-    borderBottom: "1px solid #e8e8e8",
-    boxShadow: "0px 1px 5px -5px rgba(0,0,0,0.75)",
-    marginTop: "24px",
-    "@media screen and (min-width: 1024px)": {
-      width: "100%",
-      marginBottom: "30px",
-      borderBottom: "1px solid #e8e8e8",
-      boxShadow: "0px 1px 5px -5px rgba(0,0,0,0.75)",
-      marginTop: "60px"
-    }
-  },
+  // title: {
+  //   width: "100%",
+  //   marginBottom: "0",
+  //   borderBottom: "1px solid #e8e8e8",
+  //   boxShadow: "0px 1px 5px -5px rgba(0,0,0,0.75)",
+  //   marginTop: "24px",
+  //   "@media screen and (min-width: 1024px)": {
+  //     width: "100%",
+  //     marginBottom: "30px",
+  //     borderBottom: "1px solid #e8e8e8",
+  //     boxShadow: "0px 1px 5px -5px rgba(0,0,0,0.75)",
+  //     marginTop: "60px"
+  //   }
+  // },
   containerWrapper: {
     backgroundColor: "#ffffff",
     borderTop: "solid 1px #e8e8e8",
@@ -90,7 +90,7 @@ class App extends Component {
       <ThemeProvider theme={theme}>
         <ScrollAnimation animateIn="fadeIn" delay={200} animateOnce={true}>
           <Layout className="layout">
-            <Affix offsetTop={0}>
+            <Affix offsetTop={0}   style={{ zIndex: 12 }}>
               <Header
                 id="header"
                 style={{ position: "fixed", zIndex: 1, width: "100%" }}

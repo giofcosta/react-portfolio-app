@@ -4,19 +4,12 @@ import { Icon, Card, List } from "antd";
 import { Parallax } from "react-parallax";
 import images from "../resources/images";
 import ScrollAnimation from "react-animate-on-scroll";
-import { Social } from "../template";
+import { Social, PageTitle } from "../template";
+import { aboutme } from "../local-data";
 
 const styles = theme => ({
   ...theme
 });
-
-const items = [
-  "Software engineer with 15+ years of experience as a developer.",
-  "Developed several robust systems with high scalability.",
-  "Worked on the project that changed the logistic for the largest e-commerce company in Latin America.",
-  "Fast and creative thinker.",
-  "Focused on solving the most difficult problems."
-];
 
 class AboutMe extends React.Component {
   render() {
@@ -28,9 +21,7 @@ class AboutMe extends React.Component {
         style={{ background: "#f4f4f4" }}
       >
         <div className={classes.flexContainer} style={{ minHeight: "auto" }}>
-          <div className={classes.title}>
-            <h2>ABOUT ME</h2>
-          </div>
+          <PageTitle name="ABOUT ME" hash="#about-me" />
         </div>
 
         <div class={classes.flexContainer} style={{ minHeight: "auto" }}>
@@ -38,7 +29,7 @@ class AboutMe extends React.Component {
             <Card bordered={false} style={{ width: "100%" }}>
               <List
                 itemLayout="horizontal"
-                dataSource={items}
+                dataSource={aboutme.items}
                 renderItem={item => (
                   <ScrollAnimation
                     animateIn="bounceInLeft"
@@ -46,7 +37,7 @@ class AboutMe extends React.Component {
                     offset={1000}
                     animateOnce={true}
                   >
-                    <List.Item style={{padding: '7px 0'}}>
+                    <List.Item style={{ padding: "7px 0" }}>
                       <List.Item.Meta
                         avatar={
                           <Icon
@@ -98,8 +89,7 @@ class AboutMe extends React.Component {
         />
         <div
           style={{
-            width: "100%",
-            
+            width: "100%"
           }}
         >
           <Parallax
@@ -111,7 +101,7 @@ class AboutMe extends React.Component {
               textAlign: "center"
             }}
           >
-            <div >
+            <div>
               <ScrollAnimation
                 animateIn="bounceIn"
                 duration="1"

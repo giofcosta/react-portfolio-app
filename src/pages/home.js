@@ -1,73 +1,76 @@
 import React from "react";
 import injectSheet from "react-jss";
 import { Presentation, AboutMe, Skill, Resume, Contact } from "../template";
-import ScrollAnimation from "react-animate-on-scroll";
+import LazyLoad from "react-lazyload";
 
 const styles = theme => ({
   ...theme
 });
 
 class Home extends React.Component {
+  changeHash(myhash, animateHeader) {
+    if (window.history.pushState) {
+      window.history.pushState(null, null, myhash);
+    } else {
+      window.location.hash = myhash;
+    }
+
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
+
+    if (animateHeader) {
+      document.getElementById("header").classList.add("animate");
+    } else {
+      document.getElementById("header").classList.remove("animate");
+    }
+  }
+
   render() {
     const { classes } = this.props;
     return (
       <React.Fragment>
-        <ScrollAnimation
-          duration="0.1"
-          animateIn="fadeIn"
-          afterAnimatedIn={function afterAnimatedIn(v) {
-            setTimeout(() => {
-              document.getElementById("header").classList.remove("animate");
-            }, 1);
+        <Presentation
+          className={classes.flexBlock}
+          parallax={idx => {
+            this.parallax.scrollTo(idx);
           }}
-          initiallyVisible={true}
-        >
-          <Presentation
-            className={classes.flexBlock}
-            parallax={idx => {
-              this.parallax.scrollTo(idx);
-            }}
-            offset={0}
-          />
-        </ScrollAnimation>
-        <ScrollAnimation
-          animateIn="fadeIn"
-          duration="0.1"
-          afterAnimatedIn={function afterAnimatedIn(v) {
-            setTimeout(() => {
-              document.getElementById("header").classList.add("animate");
-            }, 1);
-          }}
-          initiallyVisible={true}
-        >
+          offset={0}
+        />
+
+        <LazyLoad>
           <AboutMe
             parallax={idx => {
               this.parallax.scrollTo(idx);
             }}
             offset={1}
           />
+        </LazyLoad>
 
+        <LazyLoad>
           <Skill
             parallax={idx => {
               this.parallax.scrollTo(idx);
             }}
             offset={2}
           />
+        </LazyLoad>
 
+        <LazyLoad>
           <Resume
             parallax={idx => {
               this.parallax.scrollTo(idx);
             }}
             offset={3}
           />
+        </LazyLoad>
 
+        <LazyLoad>
           <Contact
             parallax={idx => {
               this.parallax.scrollTo(idx);
             }}
             offset={4}
           />
-        </ScrollAnimation>
+        </LazyLoad>
       </React.Fragment>
     );
   }
